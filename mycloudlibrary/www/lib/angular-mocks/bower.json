@@ -1,0 +1,10 @@
+{
+  "name": "angular-mocks",
+  "version": "1.6.2-build.5221+sha.4082fb0",
+  "license": "MIT",
+  "main": "./angular-mocks.js",
+  "ignore": [],
+  "dependencies": {
+    "angular": "1.6.2-build.5221+sha.4082fb0"
+  }
+}

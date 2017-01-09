@@ -1,0 +1,24 @@
+
+<ion-view hide-nav-bar="true" name="login-view" class="login-view">
+  <ion-content class="padding">
+    <div class="list list-inset" id="userInfo">
+      <img id="loginPageLogo" src="img/cloudlibrary.png" alt="">
+      <label class="item item-input item-floating-label" >
+        <span class="input-label">
+          <i class="icon ion-person placeholder-icon"></i>
+          Kullanıcı Adı
+        </span>
+        <input  type="text" placeholder="Kullanıcı Adı" ng-model="data.username">
+      </label>
+      <label class="item item-input item-floating-label" >
+        <span class="input-label">    
+          <i class="icon ion-locked placeholder-icon"></i>
+          Parola
+        </span>
+        <input type="password" placeholder="Parola" ng-model="data.password">
+      </label>
+
+    </div>
+    <button id="loginButton" class="button button-block button-calm" ion-button round ng-click="login()">Giriş Yap</button>
+  </ion-content>
+</ion-view>

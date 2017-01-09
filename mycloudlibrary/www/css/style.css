@@ -1,0 +1,45 @@
+/* MainPage CSS */
+.main-view{
+	background-image: url('../img/bigcloudlibrary.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+
+}
+.main-view h1{
+	font-size: 225%;
+	text-align: center;
+	color: #fff;
+}
+.main-view #buttons{
+	text-align: center;	
+}
+.main-view .button{
+	width: 60%;
+	letter-spacing: .3em;
+	background-color: white;
+	color: #458f8e;
+	border: 2px solid #64a784;
+	font-size: 20px;
+	position: absolute;
+	bottom:3%;
+	right:19%;
+}
+.main-view #loginButton {
+	bottom:12%;
+	width: 60%;
+}
+
+/* loginPage CSS */
+.login-view #loginPageLogo{
+	border-radius: 50%;
+	width: 100%;
+}
+.login-view #userInfo{
+	margin: 15% auto 0% auto ;
+	width: 65%;
+	border
+}
+.login-view #loginButton{
+	margin: 5% auto 0% auto;
+	width: 50%;
+}

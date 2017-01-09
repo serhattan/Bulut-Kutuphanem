@@ -1,0 +1,19 @@
+<ion-view view-title="Profil">
+  <ion-nav-buttons side="right">
+  <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-toggle">
+        Enable Friends
+        <label class="toggle">
+          <input type="checkbox" ng-model="settings.enableFriends">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>
