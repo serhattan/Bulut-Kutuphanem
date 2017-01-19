@@ -1,0 +1,22 @@
+<!--
+  This template loads for the 'tab.book-detail' state (app.js)
+  'book' is a $scope variable created in the BooksDetail controller (controllers.js)
+  The BooksDetail pulls data from the Books service (service.js)
+  The Books service returns an array of book data
+-->
+<ion-view view-title="{{bookdetail.name}}" class="tab-kitaplarim-detail-view">
+  <ion-content class="padding">
+   <div class="bookline">
+    <img ng-src="{{bookdetail.img}}">
+    <div class="bookInfo">
+      <div class="bookInfoIndividual">{{bookdetail.name}}</div>
+      <div class="bookInfoIndividual">{{bookdetail.publisher}}</div>
+      <div class="bookInfoIndividual">{{bookdetail.author}}</div>
+    </div>
+  </div>
+  
+  <div class="summary">
+    {{bookdetail.summary}}
+  </div>
+</ion-content>
+</ion-view>

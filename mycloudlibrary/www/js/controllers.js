@@ -1,12 +1,15 @@
 angular.module('starter.controllers', [])
 
 .controller('MainCtrl', function($scope) {})
+.controller('AnasayfaCtrl', function($scope) {})
+.controller('BooksCtrl', function($scope) {})
+
 
 .controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
   $scope.data = {};
   $scope.login = function() {
     LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
-      $state.go('tab.anasayfa');
+      $state.go('anasayfa');
     }).error(function(data) {
       var alertPopup = $ionicPopup.alert({
         title: 'Giriş Başarısız!',
@@ -17,25 +20,19 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('DashCtrl', function($scope) {})
-
-.controller('EkleCtrl', function($scope, Chats) {
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
+.controller('KitaplarimCtrl', function($scope, Books) {
+  $scope.books = Books.all();
+  $scope.remove = function(book) {
+    Books.remove(book);
   }
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('KitaplarimDetailCtrl', function($scope, $stateParams, Books) {
+  $scope.bookdetail = Books.get($stateParams.bookId);
 })
 
-.controller('FriendsCtrl', function($scope, Friends) {
-  $scope.friends = Friends.all();
-})
+.controller('EkleCtrl', function($scope, Books) {
 
-.controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
-  $scope.friend = Friends.get($stateParams.friendId);
 })
 
 .controller('ProfilCtrl', function($scope) {

@@ -40,6 +40,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     controller: 'LoginCtrl'
   })
 
+  $stateProvider
+  .state('anasayfa', {
+    url: '/anasayfa',
+    templateUrl: 'templates/anasayfa.html',
+    controller: 'AnasayfaCtrl'
+  })
+
   // setup an abstract state for the tabs directive
   .state('tab', {
     url: "/tab",
@@ -50,49 +57,29 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Each tab has its own nav history stack:
 
   .state('tab.anasayfa', {
-    url: '/anasayfa',
+    url: '/kitaplarim',
     views: {
       'tab-anasayfa': {
-        templateUrl: 'templates/tab-anasayfa.html',
-        controller: 'DashCtrl'
+        templateUrl: 'templates/tab-kitaplarim.html',
+        controller: 'KitaplarimCtrl'
       }
     }
   })  
-
+  .state('tab.kitaplarim-detail', {
+    url: '/kitaplarim/:bookId',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/kitaplarim-detail.html',
+        controller: 'KitaplarimDetailCtrl'
+      }
+    }
+  })
   .state('tab.ekle', {
     url: '/ekle',
     views: {
       'tab-ekle': {
         templateUrl: 'templates/tab-ekle.html',
         controller: 'EkleCtrl'
-      }
-    }
-  })
-  .state('tab.chat-detail', {
-    url: '/ekle/:chatId',
-    views: {
-      'tab-ekle': {
-        templateUrl: 'templates/chat-detail.html',
-        controller: 'ChatDetailCtrl'
-      }
-    }
-  })
-
-  .state('tab.friends', {
-    url: '/friends',
-    views: {
-      'tab-friends': {
-        templateUrl: 'templates/tab-friends.html',
-        controller: 'FriendsCtrl'
-      }
-    }
-  })
-  .state('tab.friend-detail', {
-    url: '/friend/:friendId',
-    views: {
-      'tab-friends': {
-        templateUrl: 'templates/friend-detail.html',
-        controller: 'FriendDetailCtrl'
       }
     }
   })

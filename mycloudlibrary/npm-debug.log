@@ -1,0 +1,189 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'i',
+1 verbose cli   '-g',
+1 verbose cli   'ionic@2.0.0' ]
+2 info using npm@3.10.10
+3 info using node@v6.9.4
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData ionic@2.0.0
+8 silly fetchNamedPackageData ionic
+9 silly mapToRegistry name ionic
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'ionic',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'ionic',
+12 silly mapToRegistry   name: 'ionic',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/ionic
+14 verbose request uri https://registry.npmjs.org/ionic
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 22:42:39
+17 verbose request id 5554f1c1c73e58cc
+18 verbose etag W/"58504a17-cb0b5"
+19 verbose lastModified Tue, 13 Dec 2016 19:20:55 GMT
+20 http request GET https://registry.npmjs.org/ionic
+21 http 200 https://registry.npmjs.org/ionic
+22 verbose headers { server: 'nginx/1.10.1',
+22 verbose headers   'content-type': 'application/json',
+22 verbose headers   'last-modified': 'Fri, 13 Jan 2017 17:59:21 GMT',
+22 verbose headers   etag: 'W/"58791579-d1a5a"',
+22 verbose headers   'content-encoding': 'gzip',
+22 verbose headers   'cache-control': 'max-age=300',
+22 verbose headers   'content-length': '46940',
+22 verbose headers   'accept-ranges': 'bytes',
+22 verbose headers   date: 'Fri, 13 Jan 2017 20:42:40 GMT',
+22 verbose headers   via: '1.1 varnish',
+22 verbose headers   age: '153',
+22 verbose headers   connection: 'keep-alive',
+22 verbose headers   'x-served-by': 'cache-ams4426-AMS',
+22 verbose headers   'x-cache': 'HIT',
+22 verbose headers   'x-cache-hits': '1',
+22 verbose headers   'x-timer': 'S1484340160.576995,VS0,VE0',
+22 verbose headers   vary: 'Accept-Encoding' }
+23 silly get cb [ 200,
+23 silly get   { server: 'nginx/1.10.1',
+23 silly get     'content-type': 'application/json',
+23 silly get     'last-modified': 'Fri, 13 Jan 2017 17:59:21 GMT',
+23 silly get     etag: 'W/"58791579-d1a5a"',
+23 silly get     'content-encoding': 'gzip',
+23 silly get     'cache-control': 'max-age=300',
+23 silly get     'content-length': '46940',
+23 silly get     'accept-ranges': 'bytes',
+23 silly get     date: 'Fri, 13 Jan 2017 20:42:40 GMT',
+23 silly get     via: '1.1 varnish',
+23 silly get     age: '153',
+23 silly get     connection: 'keep-alive',
+23 silly get     'x-served-by': 'cache-ams4426-AMS',
+23 silly get     'x-cache': 'HIT',
+23 silly get     'x-cache-hits': '1',
+23 silly get     'x-timer': 'S1484340160.576995,VS0,VE0',
+23 silly get     vary: 'Accept-Encoding' } ]
+24 verbose get saving ionic to C:\Users\Serhat\AppData\Roaming\npm-cache\registry.npmjs.org\ionic\.cache.json
+25 verbose correctMkdir C:\Users\Serhat\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+26 silly install normalizeTree
+27 silly loadCurrentTree Finishing
+28 silly loadIdealTree Starting
+29 silly install loadIdealTree
+30 silly cloneCurrentTree Starting
+31 silly install cloneCurrentTreeToIdealTree
+32 silly cloneCurrentTree Finishing
+33 silly loadShrinkwrap Starting
+34 silly install loadShrinkwrap
+35 silly loadShrinkwrap Finishing
+36 silly loadAllDepsIntoIdealTree Starting
+37 silly install loadAllDepsIntoIdealTree
+38 silly resolveWithNewModule ionic@2.0.0 checking installable status
+39 silly cache add args [ 'ionic@2.0.0', null ]
+40 verbose cache add spec ionic@2.0.0
+41 silly cache add parsed spec Result {
+41 silly cache add   raw: 'ionic@2.0.0',
+41 silly cache add   scope: null,
+41 silly cache add   escapedName: 'ionic',
+41 silly cache add   name: 'ionic',
+41 silly cache add   rawSpec: '2.0.0',
+41 silly cache add   spec: '2.0.0',
+41 silly cache add   type: 'version' }
+42 silly addNamed ionic@2.0.0
+43 verbose addNamed "2.0.0" is a plain semver version for ionic
+44 silly mapToRegistry name ionic
+45 silly mapToRegistry using default registry
+46 silly mapToRegistry registry https://registry.npmjs.org/
+47 silly mapToRegistry data Result {
+47 silly mapToRegistry   raw: 'ionic',
+47 silly mapToRegistry   scope: null,
+47 silly mapToRegistry   escapedName: 'ionic',
+47 silly mapToRegistry   name: 'ionic',
+47 silly mapToRegistry   rawSpec: '',
+47 silly mapToRegistry   spec: 'latest',
+47 silly mapToRegistry   type: 'tag' }
+48 silly mapToRegistry uri https://registry.npmjs.org/ionic
+49 verbose addNameVersion registry:https://registry.npmjs.org/ionic not in flight; fetching
+50 verbose request uri https://registry.npmjs.org/ionic
+51 verbose request no auth needed
+52 info attempt registry request try #1 at 22:42:57
+53 verbose etag W/"58791579-d1a5a"
+54 verbose lastModified Fri, 13 Jan 2017 17:59:21 GMT
+55 http request GET https://registry.npmjs.org/ionic
+56 http 304 https://registry.npmjs.org/ionic
+57 verbose headers { date: 'Fri, 13 Jan 2017 20:42:57 GMT',
+57 verbose headers   via: '1.1 varnish',
+57 verbose headers   'cache-control': 'max-age=300',
+57 verbose headers   etag: 'W/"58791579-d1a5a"',
+57 verbose headers   age: '170',
+57 verbose headers   connection: 'keep-alive',
+57 verbose headers   'x-served-by': 'cache-ams4426-AMS',
+57 verbose headers   'x-cache': 'HIT',
+57 verbose headers   'x-cache-hits': '2',
+57 verbose headers   'x-timer': 'S1484340177.964495,VS0,VE0',
+57 verbose headers   vary: 'Accept-Encoding' }
+58 silly get cb [ 304,
+58 silly get   { date: 'Fri, 13 Jan 2017 20:42:57 GMT',
+58 silly get     via: '1.1 varnish',
+58 silly get     'cache-control': 'max-age=300',
+58 silly get     etag: 'W/"58791579-d1a5a"',
+58 silly get     age: '170',
+58 silly get     connection: 'keep-alive',
+58 silly get     'x-served-by': 'cache-ams4426-AMS',
+58 silly get     'x-cache': 'HIT',
+58 silly get     'x-cache-hits': '2',
+58 silly get     'x-timer': 'S1484340177.964495,VS0,VE0',
+58 silly get     vary: 'Accept-Encoding' } ]
+59 verbose etag https://registry.npmjs.org/ionic from cache
+60 verbose get saving ionic to C:\Users\Serhat\AppData\Roaming\npm-cache\registry.npmjs.org\ionic\.cache.json
+61 verbose correctMkdir C:\Users\Serhat\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+62 silly mapToRegistry name ionic
+63 silly mapToRegistry using default registry
+64 silly mapToRegistry registry https://registry.npmjs.org/
+65 silly mapToRegistry data Result {
+65 silly mapToRegistry   raw: 'ionic',
+65 silly mapToRegistry   scope: null,
+65 silly mapToRegistry   escapedName: 'ionic',
+65 silly mapToRegistry   name: 'ionic',
+65 silly mapToRegistry   rawSpec: '',
+65 silly mapToRegistry   spec: 'latest',
+65 silly mapToRegistry   type: 'tag' }
+66 silly mapToRegistry uri https://registry.npmjs.org/ionic
+67 verbose addRemoteTarball https://registry.npmjs.org/ionic/-/ionic-2.0.0.tgz not in flight; adding
+68 verbose addRemoteTarball [ 'https://registry.npmjs.org/ionic/-/ionic-2.0.0.tgz',
+68 verbose addRemoteTarball   '8135804e1f2470292100dedadc571e99023e4f7c' ]
+69 info retry fetch attempt 1 at 22:42:57
+70 info attempt registry request try #1 at 22:42:57
+71 http fetch GET https://registry.npmjs.org/ionic/-/ionic-2.0.0.tgz
+72 http fetch 200 https://registry.npmjs.org/ionic/-/ionic-2.0.0.tgz
+73 info retry will retry, error on last attempt: Error: read ECONNRESET
+74 silly fetchAndShaCheck shasum 8135804e1f2470292100dedadc571e99023e4f7c
+75 silly rollbackFailedOptional Starting
+76 silly rollbackFailedOptional Finishing
+77 silly runTopLevelLifecycles Finishing
+78 silly install printInstalled
+79 verbose stack Error: shasum check failed for C:\Users\Serhat\AppData\Local\Temp\npm-8516-24d70d00\registry.npmjs.org\ionic\-\ionic-2.0.0.tgz
+79 verbose stack Expected: 8135804e1f2470292100dedadc571e99023e4f7c
+79 verbose stack Actual:   fd30a32b4682dc5817842e40f7aaeb596cdb2450
+79 verbose stack From:     https://registry.npmjs.org/ionic/-/ionic-2.0.0.tgz
+79 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\sha\index.js:25:8
+79 verbose stack     at ReadStream.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\sha\index.js:72:7)
+79 verbose stack     at emitNone (events.js:91:20)
+79 verbose stack     at ReadStream.emit (events.js:185:7)
+79 verbose stack     at endReadableNT (_stream_readable.js:974:12)
+79 verbose stack     at _combinedTickCallback (internal/process/next_tick.js:74:11)
+79 verbose stack     at process._tickCallback (internal/process/next_tick.js:98:9)
+80 verbose cwd C:\Users\Serhat\Desktop\Tez\mobileApp\mycloudlibrary
+81 error Windows_NT 10.0.14393
+82 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "i" "-g" "ionic@2.0.0"
+83 error node v6.9.4
+84 error npm  v3.10.10
+85 error shasum check failed for C:\Users\Serhat\AppData\Local\Temp\npm-8516-24d70d00\registry.npmjs.org\ionic\-\ionic-2.0.0.tgz
+85 error Expected: 8135804e1f2470292100dedadc571e99023e4f7c
+85 error Actual:   fd30a32b4682dc5817842e40f7aaeb596cdb2450
+85 error From:     https://registry.npmjs.org/ionic/-/ionic-2.0.0.tgz
+86 error If you need help, you may report this error at:
+86 error     <https://github.com/npm/npm/issues>
+87 verbose exit [ 1, true ]
