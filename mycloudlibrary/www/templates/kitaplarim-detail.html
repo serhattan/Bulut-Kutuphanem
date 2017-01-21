@@ -6,17 +6,57 @@
 -->
 <ion-view view-title="{{bookdetail.name}}" class="tab-kitaplarim-detail-view">
   <ion-content class="padding">
-   <div class="bookline">
-    <img ng-src="{{bookdetail.img}}">
-    <div class="bookInfo">
-      <div class="bookInfoIndividual">{{bookdetail.name}}</div>
-      <div class="bookInfoIndividual">{{bookdetail.publisher}}</div>
-      <div class="bookInfoIndividual">{{bookdetail.author}}</div>
+    <div class="bookDetailHead" style="display: block;">
+      <div class="bookline">
+        <div class="image">
+          <img ng-src="{{bookdetail.img}}">
+        </div>
+        <div class="bookInfo">
+          <div class="bookInfoIndividual">{{bookdetail.name}}</div>
+          <div class="bookInfoIndividual">{{bookdetail.publisher}}</div>
+          <div class="bookInfoIndividual">{{bookdetail.author}}</div>
+          <select id="favorite">
+            <option value="0">&#9825</option>
+            <option value="1">&#10084</option>
+          </select>
+          <select id="rating">
+            <option value="1" id="deneme">&#9733</option>
+            <option value="2">&#9733&#9733</option>
+            <option value="3">&#9733&#9733&#9733</option>
+            <option value="4">&#9733&#9733&#9733&#9733</option>
+            <option value="5">&#9733&#9733&#9733&#9733&#9733</option>
+          </select>
+        </div>
+      </div>
     </div>
-  </div>
-  
-  <div class="summary">
-    {{bookdetail.summary}}
-  </div>
-</ion-content>
+    <div class="bookDetailMid" style="margin-top: 5%; margin-bottom: 5%; width: 100%;">
+      <div class="row">
+        <div class="firstMidElement" style="width: 50%; margin: auto 3% auto 3%; text-align: center;">
+          <a href="/#/tab/kitaplarim" style="color:#000; text-decoration: none;">
+            <i class="ion-information-circled" style=" margin:5% auto auto 5% ; font-size: 200%;">
+              <br>Daha Fazla
+            </i>
+          </a>
+        </div>
+        <div class="secondMidElement" style="border-left: 2px solid #000; width: 50%; text-align: center;">
+          <i class="ion-android-share-alt" style=" margin: 5% auto auto 5% ; font-size: 200%;">
+            <br>Paylaş
+          </i>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="bookDetailBody">
+      <select id="bookStatus">
+        <option value="1">Okudum</option>
+        <option value="2">Okuyorum</option>
+        <option value="3">Okuyacağım</option>
+      </select>
+      <div class="summary">
+        {{bookdetail.summary}}
+      </div>
+    </div>
+
+
+  </ion-content>
 </ion-view>

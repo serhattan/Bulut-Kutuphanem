@@ -29,6 +29,7 @@ angular.module('starter.controllers', [])
 
 .controller('KitaplarimDetailCtrl', function($scope, $stateParams, Books) {
   $scope.bookdetail = Books.get($stateParams.bookId);
+
 })
 
 .controller('EkleCtrl', function($scope, Books) {

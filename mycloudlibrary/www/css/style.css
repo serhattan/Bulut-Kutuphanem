@@ -105,8 +105,13 @@ body{
 .tab-kitaplarim-view .button{
 	background-color: #fff;
 }
-.tab-kitaplarim-view #sortbutton{
-	margin:auto 5% auto auto ;	
+.tab-kitaplarim-view .bookIcon{
+	padding-left: 7%;
+	font-size: 200%;
+}
+.tab-kitaplarim-view .sortIcon{
+	margin:auto 7% auto auto ;
+	font-size: 150%;
 }
 .tab-kitaplarim-view img{
 	float:left;
@@ -116,30 +121,57 @@ body{
 	margin: 5% auto auto 40%;	
 }
 .tab-kitaplarim-view .bookInfoIndividual{
+	white-space: pre-line;
 	margin-top: 5%;
 }
 .tab-kitaplarim-view .icon{
 	float: right;
-	padding-bottom: px;
 }
 
 /*tab-kitaplarim-detail CSS*/
 .tab-kitaplarim-detail-view ion-content{
-	margin-top:5%;
+	margin: 5% auto auto auto;
 }
 .tab-kitaplarim-detail-view img{
+	width: 45%;
+	margin-right: 4%;
+	margin-bottom: 4%;
+	display: block;
 	float: left;
-	width: 40%;
 }
 .tab-kitaplarim-detail-view .bookInfo {
-	margin: auto auto auto 40%;
+	margin: auto auto auto 45%;
+}
+.tab-kitaplarim-detail-view .bookInfo .row{
+	margin-top: 0px;
+	padding-top: 0px;
 }
 .tab-kitaplarim-detail-view .bookInfoIndividual{
-	margin-top: 10%;
-	margin-left: 5%;
+	padding-top: 10%;
+	font-size: 150%;
+	white-space: pre-line;
+}
+.tab-kitaplarim-detail-view #rating{
+	margin-top: 5%;
+	font-size: 150%;
+	width:75%;
+}
+.tab-kitaplarim-detail-view #rating option{
+	font-size: 100%;
+}
+.tab-kitaplarim-detail-view #favorite{
+	margin-top: 5%;
+	font-size: 150%;
+	width:75%;
+}
+.tab-kitaplarim-detail-view #favorite option{
+	font-size: 100%;
+}
+.tab-kitaplarim-detail-view #bookStatus{
+	margin-top: 5%;
+	width: 100%;
 	font-size: 150%;
 }
-.tab-kitaplarim-detail-view .wrapping-list{
-	overflow: initial;
-	white-space: initial;	
+.tab-kitaplarim-detail-view #bookStatus option{
+	font-size: 100%;
 }
