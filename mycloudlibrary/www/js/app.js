@@ -5,9 +5,12 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
+
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -55,7 +58,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   // Each tab has its own nav history stack:
-
   .state('tab.anasayfa', {
     url: '/kitaplarim',
     views: {
@@ -64,7 +66,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'KitaplarimCtrl'
       }
     }
-  })  
+  })
   .state('tab.kitaplarim-detail', {
     url: '/kitaplarim/:bookId',
     views: {
@@ -73,7 +75,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'KitaplarimDetailCtrl'
       }
     }
+  })  
+  .state('tab.kitaplarim-more-detail', {
+    url: '/kitaplarim/:bookId/more',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/kitaplarim-more-detail.html',
+        controller: 'KitaplarimMoreDetailCtrl'
+      }
+    }
   })
+  
   .state('tab.ekle', {
     url: '/ekle',
     views: {
@@ -96,5 +108,4 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/main');
-
 });

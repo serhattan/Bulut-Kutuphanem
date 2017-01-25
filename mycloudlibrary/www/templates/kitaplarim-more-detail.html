@@ -1,0 +1,32 @@
+<!--
+  This template loads for the 'tab.book-more-detail' state (app.js)
+  'book' is a $scope variable created in the BooksDetail controller (controllers.js)
+  The BooksMoreDetail pulls data from the Books service (service.js)
+  The Books service returns an array of book data
+-->
+<ion-view view-title="{{bookmoredetail.name}}" class="more-view ">
+	<ion-content class="padding">
+		<div class="list">
+			<div class="item item-divider">Daha Fazla Bilgi</div>
+			
+			<a class="item genre">
+				<span class="firstItem">Tür:</span> <span class="secondItem">{{bookmoredetail.genre}} </span>
+			</a>
+			<a class="item isbn">
+				<span class="firstItem">Isbn Numarası:</span> <span class="secondItem">{{bookmoredetail.isbn}} </span>
+			</a>
+			<a class="item">
+				<span class="firstItem">Lorem İpsum:</span> <span class="secondItem">Butterfinger </span>
+			</a>
+			<a class="item">
+				<span class="firstItem">Lorem İpsum:</span> <span class="secondItem">Butterfinger </span>
+			</a>
+			<a class="item">
+				<span class="firstItem">Lorem İpsum:</span> <span class="secondItem">Butterfinger </span>
+			</a>
+			<a class="item">
+				<span class="firstItem">Lorem İpsum:</span> <span class="secondItem">Butterfinger </span>
+			</a>
+		</div>
+	</ion-content>
+</ion-view>

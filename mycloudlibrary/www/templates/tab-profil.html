@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view class="profil-view">
   <ion-nav-title>
     <div class="row">
       <a href="#/anasayfa"><img class="navbar-img" src="img/bigcloudlibrary.png" alt="Logo"/></a>
@@ -6,20 +6,95 @@
     </div>
   </ion-nav-title>
   <ion-nav-buttons side="right">
-  <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
+    <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
   </ion-nav-buttons>
   <ion-content>
-    <ion-list>
-      <ion-item class="item-toggle">
-        Enable Friends
-        <label class="toggle">
-          <input type="checkbox" ng-model="settings.enableFriends">
-          <div class="track">
-            <div class="handle"></div>
+    <div class="profilHead">
+      <div class="row">
+        <div class="col">
+          <img src="img/ben.png" alt="Profil Picture" id="profilPicture">
+        </div>
+        <div class="col" id="profilName">
+          Serhat Tan
+        </div>
+        <div class="col" id="bookNumber">
+          5 Kitap
+        </div>
+      </div>
+    </div>
+    <div class="profilBody">
+      <section ng-controller="ProfilCtrl as panel">
+        <div class="button-bar">
+         <a class="button button-small" ng-click="panel.selectTab(1)" ng-class="{active:panel.isSelected(1)}" >Hakkımda</a>
+         <a class="button button-small" ng-click="panel.selectTab(2)" ng-class="{active:panel.isSelected(2)}" >Güncelle</a>
+       </div>
+       <div class="panel" ng-show="panel.isSelected(1)">
+        <div class="panelBody">
+          <div class="col">
+            <div class="reading statements">
+              <div class="statementHeader">Okuyorum</div>
+              <ion-scroll direction="x">
+                <div class="row">
+                  <img src="img/hayalkahramanlari.png" alt="">
+                  <img src="img/momo.png" alt="">
+                  <img src="img/kafamdabirtuhaflik.png" alt="">
+                  <img src="img/mahalledenarkadaslar.png" alt="">
+                  <img src="img/kimsecik.png" alt="">
+                </div>
+              </ion-scroll>
+            </div>
           </div>
-        </label>
-      </ion-item>
-
-    </ion-list>
-  </ion-content>
+          <div class="col">
+            <div class="chart statements">
+              <div class="statementHeader">Alışveriş Listem</div>
+              <ion-scroll direction="x">
+                <div class="row">
+                  <img src="img/kimsecik.png" alt="">
+                  <img src="img/kafamdabirtuhaflik.png" alt="">
+                  <img src="img/hayalkahramanlari.png" alt="">
+                  <img src="img/momo.png" alt="">
+                  <img src="img/mahalledenarkadaslar.png" alt="">
+                </div>
+              </ion-scroll>
+            </div>
+          </div>
+          <div class="col">
+            <div class="read statements">
+              <div class="statementHeader">Okudum</div>
+              <ion-scroll direction="x">
+                <div class="row">
+                  <img src="img/kafamdabirtuhaflik.png" alt="">
+                  <img src="img/kimsecik.png" alt="">
+                  <img src="img/mahalledenarkadaslar.png" alt="">
+                  <img src="img/hayalkahramanlari.png" alt="">
+                  <img src="img/momo.png" alt="">
+                </div>
+              </ion-scroll>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel" ng-show="panel.isSelected(2)">
+        <div class="updateHeader">Güncelle</div>
+        <div class="list">
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Kullanıcı Adı</span>
+            <input type="text" placeholder="Kullanıcı Adı">
+          </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Soyad</span>
+            <input type="text" placeholder="Soyad">
+          </label>
+          <label class="item item-input item-floating-label">
+            <span class="input-label">E-mail Adresi</span>
+            <input type="text" placeholder="E-mail Adresi">
+          </label>
+          <button id="saveButton" class="button button-block">
+            Kaydet
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</ion-content>
 </ion-view>

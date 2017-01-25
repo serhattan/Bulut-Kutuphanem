@@ -6,7 +6,7 @@
 -->
 <ion-view view-title="{{bookdetail.name}}" class="tab-kitaplarim-detail-view">
   <ion-content class="padding">
-    <div class="bookDetailHead" style="display: block;">
+    <div class="bookDetailHead">
       <div class="bookline">
         <div class="image">
           <img ng-src="{{bookdetail.img}}">
@@ -29,29 +29,33 @@
         </div>
       </div>
     </div>
-    <div class="bookDetailMid" style="margin-top: 5%; margin-bottom: 5%; width: 100%;">
+    <div class="bookDetailMid">
       <div class="row">
-        <div class="firstMidElement" style="width: 50%; margin: auto 3% auto 3%; text-align: center;">
-          <a href="/#/tab/kitaplarim" style="color:#000; text-decoration: none;">
-            <i class="ion-information-circled" style=" margin:5% auto auto 5% ; font-size: 200%;">
+        <div class="firstMidElement">
+          <a href="#/tab/kitaplarim/{{bookdetail.id}}/more">
+            <i class="ion-information-circled">
               <br>Daha Fazla
             </i>
           </a>
         </div>
-        <div class="secondMidElement" style="border-left: 2px solid #000; width: 50%; text-align: center;">
-          <i class="ion-android-share-alt" style=" margin: 5% auto auto 5% ; font-size: 200%;">
+        <div class="secondMidElement">
+          <i class="ion-android-share-alt">
             <br>Paylaş
           </i>
         </div>
       </div>
       <hr>
+
     </div>
     <div class="bookDetailBody">
-      <select id="bookStatus">
-        <option value="1">Okudum</option>
-        <option value="2">Okuyorum</option>
-        <option value="3">Okuyacağım</option>
-      </select>
+      <div class="bookStatusClass">
+        <select id="bookStatus">
+          <option value="1">Okudum</option>
+          <option value="2">Okuyorum</option>
+          <option value="3">Okuyacağım</option>
+        </select>
+      </div>
+      <span class="summaryHead"><h3>Kitabın Konusu</h3></span>
       <div class="summary">
         {{bookdetail.summary}}
       </div>

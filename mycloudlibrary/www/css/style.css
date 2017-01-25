@@ -1,8 +1,11 @@
-/*@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+/*
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
 body{
 	font-family: 'Gloria Hallelujah', cursive;
 }	
 */
+
+
 /* MainPage CSS */
 .main-view{
 	background-image: url('../img/bigcloudlibrary.png');
@@ -102,6 +105,9 @@ body{
 .tab-kitaplarim-view .row{
 	margin-top: 15px;	
 }
+.tab-kitaplarim-view .ion-ios-search-strong{
+	font-size: 300%;
+}
 .tab-kitaplarim-view .button{
 	background-color: #fff;
 }
@@ -151,27 +157,130 @@ body{
 	font-size: 150%;
 	white-space: pre-line;
 }
-.tab-kitaplarim-detail-view #rating{
-	margin-top: 5%;
-	font-size: 150%;
-	width:75%;
-}
-.tab-kitaplarim-detail-view #rating option{
-	font-size: 100%;
-}
 .tab-kitaplarim-detail-view #favorite{
 	margin-top: 5%;
 	font-size: 150%;
 	width:75%;
 }
-.tab-kitaplarim-detail-view #favorite option{
-	font-size: 100%;
+.tab-kitaplarim-detail-view #rating{
+	margin-top: 5%;
+	font-size: 150%;
+	width:75%;
+}
+.tab-kitaplarim-detail-view .bookDetailHead{
+	display: block;
+}
+.tab-kitaplarim-detail-view .firstMidElement{
+	width: 50%; 
+	margin: auto 3% auto 3%; 
+	text-align: center;
+}
+.tab-kitaplarim-detail-view .firstMidElement a{
+	color:#000; 
+	text-decoration: none;
+}
+.tab-kitaplarim-detail-view .ion-information-circled{
+	margin: 5% auto auto 5% ; 
+	font-size: 200%;
+}
+.tab-kitaplarim-detail-view .secondMidElement{
+	border-left: 2px solid #000;
+	width: 50%; 
+	text-align: center;
+}
+.tab-kitaplarim-detail-view .ion-android-share-alt{
+	margin: 5% auto auto 5% ; 
+	font-size: 200%;
 }
 .tab-kitaplarim-detail-view #bookStatus{
-	margin-top: 5%;
+	margin-bottom: 5%;
 	width: 100%;
 	font-size: 150%;
 }
 .tab-kitaplarim-detail-view #bookStatus option{
-	font-size: 100%;
+	font-size: 75%;
+}
+.tab-kitaplarim-detail-view .summaryHead{
+	text-align: center;
+}
+.tab-kitaplarim-detail-view .summary{
+	font-family: none;
+	font-size: 145%;
+	word-spacing: 3px;
+}
+
+/*Kitaplarım More Detail CSS*/
+.more-view{
+	margin-top: 15px;
+}
+.more-view .firstItem{
+	float: left;
+}
+.more-view .secondItem{
+	float: right;
+}
+
+/*Profil CSS*/
+.profil-view .profilHead{
+	margin-top: 25px;
+	margin-left: 15px;
+}
+.profil-view #profilPicture{
+	width: 100%;
+	border-radius:50%;
+}
+.profil-view #profilName{
+	white-space: nowrap;
+	margin: auto auto;
+	font-weight: bold;
+	font-size:200%;
+	text-align:right;
+}
+.profil-view #bookNumber{
+	white-space: nowrap; 
+	margin: auto auto;
+	border-left: 2px solid #000;
+	font-size: 150%;
+}
+.profil-view .button-bar {
+	padding: 3% 20% 1% 20%;
+}
+.profil-view .button.active{
+	color: #fff;
+	border: 2px solid #ff9900;
+	background-color: #ff9900 !important;
+}
+.profil-view .panelBody{
+	width: 100%;
+	height: 100%;
+}
+.profil-view .statementHeader{
+	text-align: center;
+	font-size: 150%;
+	margin-top: 7%;
+}
+.profil-view .statements{
+	width: 63%;
+	margin: 0 auto;
+}
+.profil-view #scrollX{
+	height: 100%;
+}
+.profil-view .row>img{
+	width: 100px;
+	height: 200px;
+	margin-left: 10px;
+}
+.profil-view .updateHeader{
+	text-align: center;
+	font-size: 150%;
+	margin-top: 7%; 
+}
+.profil-view .list{
+	width: 75%;
+	margin:5% auto;
+}
+.profil-view #saveButton{
+	background-color: #ffa319;
+	color:#fff;
 }
