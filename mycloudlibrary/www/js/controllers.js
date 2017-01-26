@@ -2,7 +2,15 @@ angular.module('starter.controllers', [])
 
 .controller('MainCtrl', function($scope) {})
 .controller('AnasayfaCtrl', function($scope) {})
-.controller('BooksCtrl', function($scope) {})
+.controller('RaflarimCtrl', function($scope) {})
+.controller('RaflarimDetailCtrl', function($scope, $stateParams, Books) {
+    $scope.booksShelf = Books.getshelf($stateParams.shelfId);
+})
+.controller('KategorilerimCtrl', function($scope) {})
+.controller('FavorilerimCtrl', function($scope, Books) {
+  //Books daki objelerin kalp değerleri 1 olanları getkalp fonksiyonu ile çağırıyoruz
+  $scope.booksFavor = Books.getfavor();
+})
 
 
 .controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
@@ -18,6 +26,7 @@ angular.module('starter.controllers', [])
     });
   }
 })
+
 
 //books değişkenine tüm kitapları atıyoruz ve herhangi bir sayfada {{book}} şeklinde ulaşabiliyoruz
 .controller('KitaplarimCtrl', function($scope, Books) {
@@ -36,7 +45,11 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ProfilCtrl', function($scope) {
+.controller('ProfilCtrl', function($scope, $stateParams, Books) {
+  $scope.books = Books.all();
+
+  $scope.bookdetail = Books.get($stateParams.bookId);
+
   //tab değeri 1 e eşitlenerek ilk seçeneğin default olarak seçilmesini sağlıyoruz
   this.tab = 1;
   //kullanıcının ng-click ile yolladığı değer this.tab a eşitleniyor
@@ -48,4 +61,5 @@ angular.module('starter.controllers', [])
   this.isSelected = function(checkTab){
     return this.tab === checkTab;
   };
+
 });

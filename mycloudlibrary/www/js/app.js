@@ -76,6 +76,42 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })  
+  .state('tab.raflarim', {
+    url: '/raflarim',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/raflarim.html',
+        controller: 'RaflarimCtrl'
+      }
+    }
+  })  
+  .state('tab.raflarim-detail', {
+    url: '/raflarim/detail/:shelfId',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/raflarim-detail.html',
+        controller: 'RaflarimDetailCtrl'
+      }
+    }
+  })
+  .state('tab.favorilerim', {
+    url: '/favorilerim',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/favorilerim.html',
+        controller: 'FavorilerimCtrl'
+      }
+    }
+  })
+  .state('tab.kategorilerim', {
+    url: '/kategorilerim',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/kategorilerim.html',
+        controller: 'KategorilerimCtrl'
+      }
+    }
+  })
   .state('tab.kitaplarim-more-detail', {
     url: '/kitaplarim/:bookId/more',
     views: {
@@ -85,7 +121,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
-  
   .state('tab.ekle', {
     url: '/ekle',
     views: {

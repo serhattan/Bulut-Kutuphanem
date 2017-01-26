@@ -1,7 +1,7 @@
 <ion-view hide-back-button="false" class="tab-kitaplarim-view">
   <ion-nav-title>
     <div class="row">
-      <a href="#/anasayfa"><img class="navbar-img" src="img/bigcloudlibrary.png" alt="Logo"/></a>
+      <a href="#/anasayfa"><img class="navbar-img" src="img/simplecloudlibrary.png" alt="Logo"/></a>
       <div class="navbar-title">Kitaplarım</div>
       <i class="ion-ios-search-strong"></i>
     </div>
@@ -17,11 +17,9 @@
     <ion-item class="list card" ng-repeat="book in books" type="item-text-wrap" href="#/tab/kitaplarim/{{book.id}}">
       <div class="item item-body">
         <img ng-src="{{book.img}}">
-        <div class="bookInfo">
-          <div class="bookInfoIndividual">{{book.name}}</div>
-          <div class="bookInfoIndividual">{{book.publisher}}</div>
-          <div class="bookInfoIndividual">{{book.author}}</div>
-        </div>
+        <div class="bookInfoIndividual">{{book.name}}</div>
+        <div class="bookInfoIndividual">{{book.publisher}}</div>
+        <div class="bookInfoIndividual">{{book.author}}</div>
       </div>
     </ion-item>
   </div>

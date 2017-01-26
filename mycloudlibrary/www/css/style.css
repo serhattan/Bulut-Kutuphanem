@@ -1,14 +1,11 @@
-/*
 @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
 body{
 	font-family: 'Gloria Hallelujah', cursive;
 }	
-*/
-
 
 /* MainPage CSS */
 .main-view{
-	background-image: url('../img/bigcloudlibrary.png');
+	background-image: url('../img/simplecloudlibrary.png');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
@@ -44,7 +41,6 @@ body{
 .login-view #userInfo{
 	margin: 15% auto 0% auto ;
 	width: 65%;
-	border
 }
 .login-view #loginButton{
 	margin: 5% auto 0% auto;
@@ -74,7 +70,10 @@ body{
 	width: 100%;
 	height: 50%;
 	position: relative;
-	display: -webkit-flex; /* Safari */	
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex:0.5;
 }
@@ -84,9 +83,13 @@ body{
 }
 .anasayfa-view img{
 	width:100%;
-	height: 111px;
+	height: 112px;
 	display: flex;
-	flex:1;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
 }
 .anasayfa-view .eachcell #bulutkütüphanemfont{
 	top:20% !important;
@@ -123,12 +126,10 @@ body{
 	float:left;
 	width: 35%;
 }
-.tab-kitaplarim-view .bookInfo{
-	margin: 5% auto auto 40%;	
-}
 .tab-kitaplarim-view .bookInfoIndividual{
 	white-space: pre-line;
 	margin-top: 5%;
+	margin-left: 37%;
 }
 .tab-kitaplarim-view .icon{
 	float: right;
@@ -215,6 +216,7 @@ body{
 }
 .more-view .firstItem{
 	float: left;
+	font-family: none;
 }
 .more-view .secondItem{
 	float: right;
@@ -283,4 +285,77 @@ body{
 .profil-view #saveButton{
 	background-color: #ffa319;
 	color:#fff;
+}
+
+/*Raflarım CSS*/
+.raflarim-view .padding{
+	margin-top: 15px;
+}
+
+/*Kategorilerim CSS*/
+.kategorilerim-view .padding{
+	margin-top: 15px;
+}
+.kategorilerim-view span{
+	text-align: center;
+}
+.kategorilerim-view #a{
+	background-color: #a8dbc9;
+}
+.kategorilerim-view #b{
+	background-color: #f85d0e;
+}
+.kategorilerim-view #c{
+	background-color: #18c876;
+}
+.kategorilerim-view #d{
+	background-color: #41c2de;
+}
+.kategorilerim-view #e{
+	background-color: #c81e18;
+}
+.kategorilerim-view p{
+	color: #fff;
+	font-size: 150%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+/*Kitap Ekle CSS*/
+.ekle-view {
+	margin-top: 15px;
+}
+.ekle-view .row>.image{
+	border:5px grey solid; 
+	padding-top:50%; 
+	width: 50%;
+}
+.ekle-view #plusicon{
+	text-align: center; 
+	font-size: 300%;
+}
+.ekle-view .list{
+	margin-left:5%; 
+	width:50%;
+}
+.ekle-view .list input{
+	padding-top: 10%; 
+	padding-bottom: 5%; 
+	width: 100%;
+}
+.ekle-view select{
+	margin-top: 5%; font-size: 150%; width:100%;
+}
+.ekle-view textarea{
+	padding-bottom: 30%; 
+	width: 100%;
+}
+.ekle-view .kitapekleBody>input{
+	padding-top: 5%; 
+	padding-bottom:5%; 
+	width: 100%;
+}
+.ekle-view #notlar{
+	margin-top: 5%;
+	margin-bottom: 5%;
+	width: 100%;
 }

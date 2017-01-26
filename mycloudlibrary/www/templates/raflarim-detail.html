@@ -1,0 +1,18 @@
+<ion-view hide-back-button="false" class="tab-kitaplarim-view">
+	<ion-nav-title>
+		<div class="row">
+			<div class="navbar-title">Raflarım Detay</div>
+		</div>
+	</ion-nav-title>
+	<ion-content class="padding">
+		<ion-item class="list card" ng-repeat="book in booksShelf" type="item-text-wrap" href="#/tab/kitaplarim/{{book.id}}">
+			<div class="item item-body">
+				<img ng-src="{{book.img}}">
+				<div class="bookInfoIndividual">{{book.name}}</div>
+				<div class="bookInfoIndividual">{{book.publisher}}</div>
+				<div class="bookInfoIndividual">{{book.author}}</div>
+			</div>
+		</ion-item>
+	</div>
+</ion-content>
+</ion-view>

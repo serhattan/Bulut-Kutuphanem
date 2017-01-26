@@ -1,11 +1,77 @@
-<ion-view hide-back-button="false" class="tab-kitaplarim-view" style="margin-top: 15px;">
-  <ion-nav-title>
-    <div class="row">
-      <a href="#/anasayfa"><img class="navbar-img" src="img/bigcloudlibrary.png" alt="Logo"/></a>
-      <div class="navbar-title">Kitap Ekle</div>
-    </div>
-  </ion-nav-title>
-  <ion-content class="padding">
-      <h1>KİTAP EKLEME</h1>
-  </ion-content>
+<ion-view hide-back-button="false" class="ekle-view">
+	<ion-nav-title>
+		<div class="row">
+			<a href="#/anasayfa"><img class="navbar-img" src="img/simplecloudlibrary.png" alt="Logo"/></a>
+			<div class="navbar-title">Yeni Kitap</div>
+			<a href="">Kaydet</a>
+		</div>
+	</ion-nav-title>
+	<ion-content class="padding">
+		<div class="row">
+			<div class="image">
+				<div id="plusicon">
+					<i class="ion-ios-plus-outline">*</i>
+				</div>
+			</div>
+			<div class="list">
+				<label class="item item-input">
+					<input type="text" placeholder="Kitabın Adı*">
+				</label>
+				<label class="item item-input">
+					<input type="text" placeholder="Yayın Evi*">
+				</label>
+				<label class="item item-input">
+					<input type="text" placeholder="Kitabın Yazarı*">
+				</label>
+				<select>
+					<option value="0">&#9825</option>
+					<option value="1">&#10084</option>
+				</select>
+				<select>
+					<option value="1">&#9733</option>
+					<option value="2">&#9733&#9733</option>
+					<option value="3">&#9733&#9733&#9733</option>
+					<option value="4">&#9733&#9733&#9733&#9733</option>
+					<option value="5">&#9733&#9733&#9733&#9733&#9733</option>
+				</select>
+			</div>
+		</div>
+		<div class="kitapekleBody">
+			<label class="item item-input">
+				<textarea placeholder="Kitabın Konusu*"></textarea>
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Çevirmen">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Seri Adı">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Kitabın Türü">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Baskı Sayısı">
+			</label>
+			<label class="item item-input">
+				<input type="number" placeholder="ISBN">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="Sayfa Sayısı">
+			</label>
+			<select>
+				<option value="1" selected>Raf Seçiniz</option>
+				<option value="2">Çocuk Kitapları</option>
+				<option value="3">Tarih Kitapları</option>
+				<option value="4">İlham Verici Kitaplar</option>
+			</select>
+			<select>
+				<option value="1">Okudum</option>
+				<option value="2">Okuyorum</option>
+				<option value="3">Okuyacağım</option>
+			</select>
+			<label class="item item-input"id="notlar">
+				<textarea placeholder="Notlar"></textarea>
+			</label>
+		</div>
+	</ion-content>
 </ion-view>
