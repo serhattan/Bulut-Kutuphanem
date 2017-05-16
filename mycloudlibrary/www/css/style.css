@@ -1,8 +1,8 @@
+/*body{
 @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
-body{
 	font-family: 'Gloria Hallelujah', cursive;
 }	
-
+*/
 /* MainPage CSS */
 .main-view{
 	background-image: url('../img/simplecloudlibrary.png');
@@ -33,6 +33,13 @@ body{
 	width: 60%;
 }
 
+.bookIcon{
+	text-align: right; 
+	font-size: 150%;
+}
+.bar .title a{
+	text-decoration: none;
+}
 /* loginPage CSS */
 .login-view #loginPageLogo{
 	border-radius: 50%;
@@ -111,9 +118,6 @@ body{
 .tab-kitaplarim-view .ion-ios-search-strong{
 	font-size: 300%;
 }
-.tab-kitaplarim-view .button{
-	background-color: #fff;
-}
 .tab-kitaplarim-view .bookIcon{
 	padding-left: 7%;
 	font-size: 200%;
@@ -141,6 +145,7 @@ body{
 }
 .tab-kitaplarim-detail-view img{
 	width: 45%;
+	min-height: 250px;
 	margin-right: 4%;
 	margin-bottom: 4%;
 	display: block;
@@ -262,14 +267,14 @@ body{
 	margin-top: 7%;
 }
 .profil-view .statements{
-	width: 63%;
+	width: 72%;
 	margin: 0 auto;
 }
-.profil-view #scrollX{
-	height: 100%;
+.profil-view #row{
+	width: 500px;
 }
-.profil-view .row>img{
-	width: 100px;
+.profil-view #profilbookimg{
+	min-width: 100%;
 	height: 200px;
 	margin-left: 10px;
 }
@@ -306,13 +311,16 @@ body{
 	background-color: #f85d0e;
 }
 .kategorilerim-view #c{
-	background-color: #18c876;
+	background-color: #b0b717;
 }
 .kategorilerim-view #d{
 	background-color: #41c2de;
 }
 .kategorilerim-view #e{
 	background-color: #c81e18;
+}
+.kategorilerim-view #f{
+	background-color: #3fa343;
 }
 .kategorilerim-view p{
 	color: #fff;
@@ -321,7 +329,7 @@ body{
 	padding-bottom: 2%;
 }
 /*Kitap Ekle CSS*/
-.ekle-view {
+.ekle-view{
 	margin-top: 15px;
 }
 .ekle-view .row>.image{
@@ -358,4 +366,40 @@ body{
 	margin-top: 5%;
 	margin-bottom: 5%;
 	width: 100%;
+}
+
+
+.raflarim-detail-view img{
+	float:left;
+	width: 35%;
+}
+.raflarim-detail-view .bookInfoIndividual{
+	white-space: pre-line;
+	margin-top: 5%;
+	margin-left: 40%;
+}
+
+
+.raflarim-view .card{
+	text-decoration: none;
+}
+.raflarim-ekle-view .list{
+	width: 75%;
+	margin:5% auto auto auto;
+}
+.raflarim-ekle-view #saveButton{
+	margin: auto auto auto 10%;
+	width: 80%;
+	background-color: #ffa319;
+	color:#fff ;
+}
+.raflarim-ekle-view #addShelfLogo{
+	border-radius: 13%;
+	width: 75%;
+	margin: 7% auto auto 12%;
+}
+.raflarim-checkbox-view img{
+	height: 60px;
+	float: left;
+	margin-right: 5%;
 }

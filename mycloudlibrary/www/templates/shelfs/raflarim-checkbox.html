@@ -1,0 +1,18 @@
+<ion-view hide-back-button="false" class="raflarim-checkbox-view">
+	<ion-nav-title>
+		<div class="row">
+			<div class="navbar-title">Raflarım Checkbox</div>
+			<a ng-click="savebook()" style="background-color: Transparent;border: none;"><i class="ion-ios-plus bookIcon"></i></a>
+		</div>
+	</ion-nav-title>
+	<ion-content class="padding">
+		<ion-list ng-repeat="book in books">
+			<ion-checkbox ng-click="addshelf({{book.id}})">
+				<img ng-src="{{book.img}}">
+				<div class="bookInfoIndividual">{{book.name}}</div>
+			</ion-checkbox>
+		</ion-list>
+	</div>
+</ion-item>
+</ion-content>
+</ion-view>

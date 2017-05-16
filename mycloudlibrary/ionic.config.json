@@ -10,5 +10,6 @@
     "www/**/*",
     "!www/lib/**/*",
     "!www/**/*.map"
-  ]
+  ],
+  "defaultBrowser": "chrome"
 }

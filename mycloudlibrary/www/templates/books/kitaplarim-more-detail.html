@@ -1,0 +1,66 @@
+<!--
+  This template loads for the 'tab.book-more-detail' state (app.js)
+  'bookmoredetail' is a $scope variable created in the KitaplarimMoreDetailCtrl controller (controllers.js)
+  The BooksMoreDetail pulls data from the Books service (service.js)
+  The Books service returns an array of book data
+-->
+<ion-view view-title="Kitabın Detayı" class="more-view ">
+	<ion-content class="padding">
+		<div class="card">
+			<div class="item item-divider">
+				Kitabın Türü
+			</div>
+			<div class="item item-text-wrap">
+				{{bookmoredetail.genre}}
+			</div>
+			<div class="item item-divider">
+				Çevirmen
+			</div>
+			<div class="item item-text-wrap">
+				{{bookmoredetail.translator}}
+			</div>
+			<div class="item item-divider">
+				Serisi
+			</div>
+			<div class="item item-text-wrap">
+				{{bookmoredetail.series}}
+			</div>
+			<div class="item item-divider">
+				Baskı Sayısı
+			</div>
+			<div class="item item-text-wrap">
+				{{bookmoredetail.edition}}
+			</div>
+			<div class="item item-divider">
+				Sayfa Sayısı
+			</div>
+			<div class="item item-text-wrap">
+				{{bookmoredetail.pagenumber}}
+			</div>
+			<div class="item item-divider">
+				Ödünç Verildi
+			</div>
+			<div class="item item-text-wrap">
+				{{bookmoredetail.lend_to}}
+			</div>
+			<div class="item item-divider">
+				Ödünç Alındı
+			</div>
+			<div class="item item-text-wrap">
+				{{bookmoredetail.borrow_from}}
+			</div>
+			<div class="item item-divider">
+				Notlar
+			</div>
+			<div class="item item-text-wrap">
+				{{bookmoredetail.note}}
+			</div>
+			<div class="item item-divider">
+				Isbn Numarası
+			</div>
+			<div class="item item-text-wrap">
+				{{bookmoredetail.isbn}}
+			</div>
+			
+		</ion-content>
+	</ion-view>

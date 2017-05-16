@@ -1,11 +1,12 @@
 <!--
   This template loads for the 'tab.book-detail' state (app.js)
-  'book' is a $scope variable created in the BooksDetail controller (controllers.js)
+  'bookdetail' is a $scope variable created in the BooksDetail controller (controllers.js)
   The BooksDetail pulls data from the Books service (service.js)
   The Books service returns an array of book data
 -->
-<ion-view view-title="{{bookdetail.name}}" class="tab-kitaplarim-detail-view">
+<ion-view view-title="Bulut Kütüphanem" class="tab-kitaplarim-detail-view">
   <ion-content class="padding">
+    <ion-refresher on-refresh="doRefresh()" pulling-text="Yenileniyor..."> </ion-refresher> 
     <div class="bookDetailHead">
       <div class="bookline">
         <div class="image">
@@ -15,12 +16,12 @@
           <div class="bookInfoIndividual">{{bookdetail.name}}</div>
           <div class="bookInfoIndividual">{{bookdetail.publisher}}</div>
           <div class="bookInfoIndividual">{{bookdetail.author}}</div>
-          <select id="favorite">
-            <option value="0">&#9825</option>
-            <option value="1">&#10084</option>
+          <select id="favorite" ng-model="myFavorite" ng-change="showSelectValue(myFavorite,myRate,myStatu,myShelf)">
+            <option value="1">&#9825</option>
+            <option value="2">&#10084</option>
           </select>
-          <select id="rating">
-            <option value="1" id="deneme">&#9733</option>
+          <select id="rating" ng-model="myRate" ng-change="showSelectValue(myFavorite,myRate,myStatu,myShelf)">
+            <option value="1">&#9733</option>
             <option value="2">&#9733&#9733</option>
             <option value="3">&#9733&#9733&#9733</option>
             <option value="4">&#9733&#9733&#9733&#9733</option>
@@ -32,7 +33,7 @@
     <div class="bookDetailMid">
       <div class="row">
         <div class="firstMidElement">
-          <a href="#/tab/kitaplarim/{{bookdetail.id}}/more">
+          <a href="#/tab/kitaplarim/more/?a=moredetail&id={{cb_id}}">
             <i class="ion-information-circled">
               <br>Daha Fazla
             </i>
@@ -49,15 +50,19 @@
     </div>
     <div class="bookDetailBody">
       <div class="bookStatusClass">
-        <select id="bookStatus">
+        <select id="bookStatus" ng-model="myStatu" ng-change="showSelectValue(myFavorite,myRate,myStatu,myShelf)">
           <option value="1">Okudum</option>
           <option value="2">Okuyorum</option>
           <option value="3">Okuyacağım</option>
         </select>
+        <select id="bookStatus" ng-model="myShelf" ng-change="showSelectValue(myFavorite,myRate,myStatu,myShelf)">
+          <option value="0"></option>
+          <option ng-repeat="shelf in shelfs" value="{{shelf.id}}">{{shelf.name}}</option>
+        </select>
       </div>
       <span class="summaryHead"><h3>Kitabın Konusu</h3></span>
       <div class="summary">
-        {{bookdetail.summary}}
+        {{bookdetail.subtitle}}
       </div>
     </div>
 

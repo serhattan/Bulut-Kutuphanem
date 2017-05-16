@@ -1,0 +1,23 @@
+<ion-view hide-back-button="false" class="raflarim-ekle-view">
+	<ion-nav-title>
+		<div class="navbar-title">Yeni Raf</div>
+	</ion-nav-title>
+	<ion-content class="padding">
+	      <img id="addShelfLogo" src="img/raflarim.png" alt="">
+		<form ng-submit="createShelf(add)">
+			<div class="list">
+				<label class="item item-input item-floating-label">
+					<span class="input-label"><i class="ion-social-buffer"> Raf Adı</i></span>
+					<input type="text" value="akjbfs" placeholder="Raf Adı" ng-model="add.shelfname" required>
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label"><i class="ion-compose"> Raf Açıklaması</i></span>
+					<input type="text" placeholder="Raf Açıklaması" ng-model="add.shelfstatement">
+				</label>
+			</div>
+			<div class="padding">
+				<button type="submit" id="saveButton" class="button button-block">Raf Ekle</button>
+			</div>
+		</form>
+	</ion-content>
+</ion-view>

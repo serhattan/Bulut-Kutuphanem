@@ -1,0 +1,30 @@
+<ion-view hide-back-button="true" class="tab-kitaplarim-view">
+  <ion-nav-title>
+    <div class="row">
+      <a href="#/anasayfa"><img class="navbar-img" src="img/simplecloudlibrary.png" alt="Logo"/></a>
+      <div class="navbar-title">Kitaplarım</div>
+      <button class="button button-icon icon ion-ios-minus-outline" ng-click="data.showDelete = !data.showDelete;"></button>
+    </div>
+  </ion-nav-title>
+  <ion-content class="padding">
+    <ion-refresher on-refresh="doRefresh()" pulling-text="Yenileniyor..."> </ion-refresher> 
+    <div class="row" id="count-order">
+      <i class="ion-ios-book bookIcon"> {{books.length}}</i>
+      <i class="ion-funnel sortIcon"> Sırala</i>
+    </div>
+    <hr>
+    <ion-list show-delete="data.showDelete">
+      <ion-item ng-repeat="book in books" class="list card item-remove-animate" type="item-text-wrap" href="#/tab/kitaplarim/?a=detail&id={{book.id}}">
+        <div class="item item-body">
+          <img ng-src="{{book.img}}">
+          <div class="bookInfoIndividual">{{book.name}}</div>
+          <div class="bookInfoIndividual">{{book.publisher}}</div>
+          <div class="bookInfoIndividual">{{book.author}}</div>
+        </div>
+        <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(book); hideremoved(book);"></ion-delete-button>
+        <ion-option-button class="button-assertive" ng-click="edit(book)">Düzenle</ion-option-button>
+        <ion-option-button class="button-calm" ng-click="share(book)">Paylaş</ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

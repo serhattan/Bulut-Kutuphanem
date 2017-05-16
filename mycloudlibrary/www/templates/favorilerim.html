@@ -1,13 +1,14 @@
-<ion-view hide-back-button="false" class="tab-kitaplarim-view">
+<ion-view hide-back-button="true" class="tab-kitaplarim-view">
 	<ion-nav-title>
 		<div class="row">
 			<a href="#/anasayfa"><img class="navbar-img" src="img/simplecloudlibrary.png" alt="Logo"/></a>
 			<div class="navbar-title">Favorilerim</div>
-			<i class="ion-ios-search-strong"></i>
+			<i class="ion-ios-book bookIcon"> {{books.length}} </i> &nbsp
 		</div>
 	</ion-nav-title>
 	<ion-content class="padding">
-		<ion-item class="list card" ng-repeat="book in booksFavor" type="item-text-wrap" href="#/tab/kitaplarim/{{book.id}}">
+		<ion-refresher on-refresh="doRefresh()" pulling-text="Yenileniyor..."> </ion-refresher> 
+		<ion-item class="list card" ng-repeat="book in books" type="item-text-wrap" href="#/tab/kitaplarim/?a=detail&id={{book.id}}">
 			<div class="item item-body">
 				<img ng-src="{{book.img}}">
 				<div class="bookInfoIndividual">{{book.name}}</div>
@@ -15,6 +16,5 @@
 				<div class="bookInfoIndividual">{{book.author}}</div>
 			</div>
 		</ion-item>
-	</div>
-</ion-content>
+	</ion-content>
 </ion-view>

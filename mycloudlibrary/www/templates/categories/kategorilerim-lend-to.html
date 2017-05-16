@@ -1,0 +1,20 @@
+<ion-view class="kategorilerim-case-view">
+  <ion-nav-title>
+    <div class="row">
+      <div class="navbar-title">Ödünç Verilen Kitaplar</div>
+      <i class="ion-ios-book bookIcon"> {{getinfos.length}} </i>  
+    </div>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <ion-refresher on-refresh="doRefresh()" pulling-text="Yenileniyor..."></ion-refresher> 
+    <div class="list item-text-wrap" ng-repeat="getinfo in getinfos">
+      <div class="item item-avatar">
+        <img ng-src={{getinfo.img}}>
+        <h2><strong>{{getinfo.name}}</strong></h2>
+        <p>Ödünç verildi: <strong>{{getinfo.lend_to}}</strong></p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

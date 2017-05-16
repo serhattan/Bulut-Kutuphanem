@@ -1,0 +1,20 @@
+<ion-view class="kategorilerim-case-view">
+  <ion-nav-title>
+    <div class="row">
+      <div class="navbar-title">Kitap Notlarım</div>
+      <i class="ion-ios-book bookIcon"> {{getinfos.length}} </i>  
+    </div>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <ion-refresher on-refresh="doRefresh()" pulling-text="Yenileniyor..."></ion-refresher> 
+    <div class="list item-text-wrap" ng-repeat="getinfo in getinfos">
+      <a class="item item-thumbnail-left">
+        <img ng-src={{getinfo.img}}>
+        <strong>{{getinfo.name}}</strong>
+        <p>{{getinfo.note}}</p>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

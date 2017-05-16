@@ -1,13 +1,11 @@
 <ion-view hide-back-button="false" class="ekle-view">
 	<ion-nav-title>
 		<div class="row">
-			<a href="#/anasayfa"><img class="navbar-img" src="img/simplecloudlibrary.png" alt="Logo"/></a>
-			<div class="navbar-title">Yeni Kitap</div>
+			<div class="navbar-title">Düzenle</div>
 			<button class="button button-light" ng-click="adding()" style="background-color: Transparent; border: none;"> Kaydet</button>
 		</div>
 	</ion-nav-title>
 	<ion-content class="padding">
-		<ion-refresher on-refresh="doRefresh()" pulling-text="Yenileniyor..."> </ion-refresher> 
 		<div class="row">
 			<div class="image">
 				<div id="plusicon" ng-model="add.img">
@@ -15,14 +13,17 @@
 				</div>
 			</div>
 			<div class="list">
-				<label class="item item-input">
-					<input type="text" placeholder="Kitabın Adı*" ng-model="add.name">
+				<label class="item item-input item-text-wrap">
+					<span ng-show="statement.smaller">{{add.name}}</span>
+					<input type="text" placeholder="Kitabın Adı*" ng-model="add.name" ng-show="statement.bigger">
 				</label>
-				<label class="item item-input">
-					<input type="text" placeholder="Yayın Evi*" ng-model="add.publisher">
+				<label class="item item-input item-text-wrap">
+					<span ng-show="statement.smaller">{{add.publisher}}</span>
+					<input type="text" placeholder="Yayın Evi*" ng-model="add.publisher" ng-show="statement.bigger">
 				</label>
-				<label class="item item-input">
-					<input type="text" placeholder="Kitabın Yazarı*" ng-model="add.author">
+				<label class="item item-input item-text-wrap">
+					<span ng-show="statement.smaller">{{add.author}}</span>
+					<input type="text" placeholder="Kitabın Yazarı*" ng-model="add.author" ng-show="statement.bigger">
 				</label>
 				<select ng-model="add.favorite">
 					<option value="1">&#9825</option>
@@ -38,17 +39,19 @@
 			</div>
 		</div>
 		<div class="kitapekleBody">
-			<label class="item item-input">
-				<textarea placeholder="Kitabın Konusu*" ng-model="add.subtitle"></textarea>
+			<label class="item item-input item-text-wrap">
+				<span ng-show="statement.smaller">{{add.subtitle}}</span>
+				<textarea placeholder="Kitabın Konusu*" ng-model="add.subtitle" ng-show="statement.bigger"></textarea>
 			</label>
-			<label class="item item-input">
+			<label class="item item-input item-text-wrap">
 				<input type="text" placeholder="Çevirmen" ng-model="add.translator">
 			</label>
-			<label class="item item-input">
+			<label class="item item-input item-text-wrap">
 				<input type="text" placeholder="Seri Adı" ng-model="add.series">
 			</label>
-			<label class="item item-input">
-				<input type="text" placeholder="Kitabın Türü" ng-model="add.genre">
+			<label class="item item-input item-text-wrap">
+				<span ng-show="statement.smaller">{{add.genre}}</span>
+				<input type="text" placeholder="Kitabın Türü" ng-model="add.genre" ng-show="statement.bigger">
 			</label>
 			<label class="item item-input">
 				<input type="number" placeholder="Baskı Sayısı" ng-model="add.edition">
@@ -56,18 +59,16 @@
 			<label class="item item-input">
 				<input type="number" placeholder="Sayfa Sayısı" ng-model="add.pagenumber">
 			</label>
-			<label class="item item-input">
+			<label class="item item-input item-text-wrap">
 				<input type="text" placeholder="Ödünç Alındı" ng-model="add.lend_to">
 			</label>
-			<label class="item item-input">
+			<label class="item item-input item-text-wrap">
 				<input type="text" placeholder="Ödünç Verildi" ng-model="add.borrow_from">
 			</label>
 			<label class="item item-input">
-				<input type="number" placeholder="ISBN" ng-model="add.isbn">
+				<span ng-show="statement.smaller">{{add.isbn}}</span>
+				<input type="number" placeholder="ISBN" ng-model="add.isbn" ng-show="statement.bigger">
 			</label>
-			<select ng-model="add.shelf">
-				<option ng-repeat="shelf in shelfs" value="{{shelf.id}}">{{shelf.name}}</option>
-			</select>
 			<select ng-model="add.statu">
 				<option value="1">Okudum</option>
 				<option value="2">Okuyorum</option>

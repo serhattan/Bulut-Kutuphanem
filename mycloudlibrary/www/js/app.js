@@ -1,5 +1,4 @@
 // Ionic Starter App
-
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
@@ -9,8 +8,6 @@
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
-
-
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -59,47 +56,74 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
   .state('tab.anasayfa', {
-    url: '/kitaplarim',
+    url: '/?a=get&func=kitaplarim',
     views: {
       'tab-anasayfa': {
-        templateUrl: 'templates/tab-kitaplarim.html',
+        templateUrl: 'templates/books/tab-kitaplarim.html',
         controller: 'KitaplarimCtrl'
       }
     }
   })
   .state('tab.kitaplarim-detail', {
-    url: '/kitaplarim/:bookId',
+    url: '/kitaplarim/?a=detail&id=:bookId',
     views: {
       'tab-anasayfa': {
-        templateUrl: 'templates/kitaplarim-detail.html',
+        templateUrl: 'templates/books/kitaplarim-detail.html',
         controller: 'KitaplarimDetailCtrl'
+      }
+    }
+  })
+  .state('tab.kitaplarim-more-detail', {
+    url: '/kitaplarim/more/?a=moredetail&id=:cbId',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/books/kitaplarim-more-detail.html',
+        controller: 'KitaplarimMoreDetailCtrl'
+      }
+    }
+  }) 
+  .state('tab.kitaplarim-edit', {
+    url: '/kitaplarim/edit/?id=:cid',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/books/kitaplarim-edit.html',
+        controller: 'KitaplarimEditCtrl'
       }
     }
   })  
   .state('tab.raflarim', {
-    url: '/raflarim',
+    url: '/raflarim/?a=get&func=raflarim',
     views: {
       'tab-anasayfa': {
-        templateUrl: 'templates/raflarim.html',
+        templateUrl: 'templates/shelfs/raflarim.html',
         controller: 'RaflarimCtrl'
       }
     }
   })  
   .state('tab.raflarim-detail', {
-    url: '/raflarim/detail/:shelfId',
+    url: '/raflarim/detail/?a=shelfInfo&id=:shelfId',
     views: {
       'tab-anasayfa': {
-        templateUrl: 'templates/raflarim-detail.html',
+        templateUrl: 'templates/shelfs/raflarim-detail.html',
         controller: 'RaflarimDetailCtrl'
       }
     }
   })
-  .state('tab.favorilerim', {
-    url: '/favorilerim',
+  .state('tab.raflarim-ekle', {
+    url: '/raflarim/new',
     views: {
       'tab-anasayfa': {
-        templateUrl: 'templates/favorilerim.html',
-        controller: 'FavorilerimCtrl'
+        templateUrl: 'templates/shelfs/raflarim-ekle.html',
+        controller: 'RaflarimEkleCtrl'
+      }
+    }
+  })
+  .state('tab.raflarim-checkbox', {
+    url: '/raflarim/checkbox',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/shelfs/raflarim-checkbox.html',
+        controller: 'RaflarimCheckboxCtrl'
       }
     }
   })
@@ -107,17 +131,62 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/kategorilerim',
     views: {
       'tab-anasayfa': {
-        templateUrl: 'templates/kategorilerim.html',
+        templateUrl: 'templates/categories/kategorilerim.html',
         controller: 'KategorilerimCtrl'
       }
     }
   })
-  .state('tab.kitaplarim-more-detail', {
-    url: '/kitaplarim/:bookId/more',
+  .state('tab.kategorilerim-lendto', {
+    url: '/kategorilerim/lendto/?a=getinfo&info=lendto',
     views: {
       'tab-anasayfa': {
-        templateUrl: 'templates/kitaplarim-more-detail.html',
-        controller: 'KitaplarimMoreDetailCtrl'
+        templateUrl: 'templates/categories/kategorilerim-lend-to.html',
+        controller: 'KategorilerimLendToCtrl'
+      }
+    }
+  })
+  .state('tab.kategorilerim-borrowfrom', {
+    url: '/kategorilerim/borrowfrom/?a=getinfo&info=borrowfrom',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/categories/kategorilerim-borrow-from.html',
+        controller: 'KategorilerimBorrowFromCtrl'
+      }
+    }
+  })
+  .state('tab.kategorilerim-notes', {
+    url: '/kategorilerim/notes/?a=getinfo&info=notes',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/categories/kategorilerim-notes.html',
+        controller: 'KategorilerimNotesCtrl'
+      }
+    }
+  })
+  .state('tab.kategorilerim-read', {
+    url: '/kategorilerim/read/?a=getinfo&info=read',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/categories/kategorilerim-read.html',
+        controller: 'KategorilerimReadCtrl'
+      }
+    }
+  })
+  .state('tab.kategorilerim-willread', {
+    url: '/kategorilerim/willread/?a=getinfo&info=willread',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/categories/kategorilerim-willread.html',
+        controller: 'KategorilerimWillReadCtrl'
+      }
+    }
+  })
+  .state('tab.kategorilerim-reading', {
+    url: '/kategorilerim/reading/?a=getinfo&info=reading',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/categories/kategorilerim-reading.html',
+        controller: 'KategorilerimReadingCtrl'
       }
     }
   })
@@ -130,13 +199,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
-
   .state('tab.profil', {
     url: '/profil',
     views: {
       'tab-profil': {
         templateUrl: 'templates/tab-profil.html',
         controller: 'ProfilCtrl'
+      }
+    }
+  })
+  .state('tab.favorilerim', {
+    url: '/favorite/?a=get&func=fav',
+    views: {
+      'tab-anasayfa': {
+        templateUrl: 'templates/favorilerim.html',
+        controller: 'FavorilerimCtrl'
       }
     }
   });

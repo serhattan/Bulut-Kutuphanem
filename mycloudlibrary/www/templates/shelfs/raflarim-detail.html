@@ -1,0 +1,23 @@
+<ion-view hide-back-button="false" class="raflarim-detail-view">
+	<ion-nav-title>
+		<div class="row">
+			<div class="navbar-title">Raflarım Detail</div>
+			<i class="ion-ios-book bookIcon"> {{shelfBooks.length}}</i>&nbsp&nbsp&nbsp&nbsp  
+			<a href="#/tab/raflarim/checkbox?id={{shelfid}}" style="background-color: Transparent;border: none;"><i class="ion-ios-plus-outline bookIcon"></i> </a>
+		</div>
+	</ion-nav-title>
+	<ion-nav-buttons side="right">
+	</ion-nav-buttons>
+	<ion-content class="padding">
+		<div class="row" id="count-order">
+		</div>
+		<ion-item class="list card" ng-repeat="shelfBook in shelfBooks" type="item-text-wrap" href="#/tab/kitaplarim/?a=detail&id={{shelfBook.id}}">
+			<div class="item item-body">
+				<img ng-src="{{shelfBook.img}}">
+				<div class="bookInfoIndividual">{{shelfBook.name}}</div>
+				<div class="bookInfoIndividual">{{shelfBook.publisher}}</div>
+				<div class="bookInfoIndividual">{{shelfBook.author}}</div>
+			</div>
+		</ion-item>
+	</ion-content>
+</ion-view>

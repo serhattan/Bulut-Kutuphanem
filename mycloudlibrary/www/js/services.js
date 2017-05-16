@@ -24,96 +24,168 @@ angular.module('starter.services', [])
     }
 })
 
-.factory('Books', function() {
-  // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  var books = [{
-    id: 0,
-    name: 'Mahalleden Arkadaşlar',
-    publisher: 'Sayfa 6',
-    author: 'Selçuk Aydemir',
-    img: 'img/mahalledenarkadaslar.png',
-    summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at mi est. Sed mi sapien, laoreet in congue eget, elementum tincidunt libero. Vestibulum gravida posuere lorem, sed interdum ex maximus eu. Morbi ultrices iaculis dui non facilisis. Suspendisse consectetur felis nibh, vitae feugiat odio malesuada sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse fermentum ex sollicitudin risus tincidunt porta. Nullam pharetra condimentum ante non hendrerit. Vivamus sed velit diam. Proin id velit vitae tellus sagittis ultrices. Vivamus sed nulla vel risus tristique suscipit nec at ipsum. Proin cursus lacinia augue, vitae dignissim mauris pellentesque eget. Quisque leo neque, placerat at tincidunt vitae, sagittis sed libero. Integer volutpat, odio sed porttitor venenatis, leo quam ornare justo, ut tempus leo quam quis ex. Donec facilisis est purus, vel volutpat metus ultrices eget.Nullam nec ipsum pulvinar, rutrum arcu sagittis, sollicitudin felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consectetur viverra dui, id porttitor tellus imperdiet sed. Sed convallis sodales ligula, quis malesuada libero gravida ut. Mauris sodales mollis odio vitae porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed faucibus mauris. Praesent dolor eros, imperdiet vitae congue vel, ornare ac nisl. Nam vel consectetur purus, non fringilla velit. Maecenas malesuada, justo eget tempus tempor, nunc orci egestas purus, at varius mauris tellus et odio. Nam nec enim ac mi rhoncus interdum. Duis sit amet lectus eleifend, consectetur metus sed, semper purus. Ut faucibus est malesuada fermentum tincidunt. Donec non nibh laoreet, varius diam sed, fermentum massa. Aenean elit augue, ornare sit amet tempus sed, blandit vel nunc.',
-    kalp: "0",
-    raf: "3",
-    genre:'Kurgu Roman' ,
-    isbn: '9789750807145',
-}, {
-    id: 1,
-    name: 'Kafamda Bir Tuhaflık',
-    publisher: 'Yapı Kredi Yayınları',
-    author: 'Orhan Pamuk',
-    img: 'img/kafamdabirtuhaflik.png',
-    summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at mi est. Sed mi sapien, laoreet in congue eget, elementum tincidunt libero. Vestibulum gravida posuere lorem, sed interdum ex maximus eu. Morbi ultrices iaculis dui non facilisis. Suspendisse consectetur felis nibh, vitae feugiat odio malesuada sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse fermentum ex sollicitudin risus tincidunt porta. Nullam pharetra condimentum ante non hendrerit. Vivamus sed velit diam. Proin id velit vitae tellus sagittis ultrices. Vivamus sed nulla vel risus tristique suscipit nec at ipsum. Proin cursus lacinia augue, vitae dignissim mauris pellentesque eget. Quisque leo neque, placerat at tincidunt vitae, sagittis sed libero. Integer volutpat, odio sed porttitor venenatis, leo quam ornare justo, ut tempus leo quam quis ex. Donec facilisis est purus, vel volutpat metus ultrices eget.Nullam nec ipsum pulvinar, rutrum arcu sagittis, sollicitudin felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consectetur viverra dui, id porttitor tellus imperdiet sed. Sed convallis sodales ligula, quis malesuada libero gravida ut. Mauris sodales mollis odio vitae porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed faucibus mauris. Praesent dolor eros, imperdiet vitae congue vel, ornare ac nisl. Nam vel consectetur purus, non fringilla velit. Maecenas malesuada, justo eget tempus tempor, nunc orci egestas purus, at varius mauris tellus et odio. Nam nec enim ac mi rhoncus interdum. Duis sit amet lectus eleifend, consectetur metus sed, semper purus. Ut faucibus est malesuada fermentum tincidunt. Donec non nibh laoreet, varius diam sed, fermentum massa. Aenean elit augue, ornare sit amet tempus sed, blandit vel nunc.',
-    kalp: "1",
-    raf: "1",
-    genre:'Deneme' ,
-    isbn: '9789750807153',
-}, {
-    id: 2,
-    name: 'Yağmurcuk Kuşu',
-    publisher: 'Yapı Kredi Yayınları',
-    author: 'Yaşar Kemal',
-    img: 'img/kimsecik.png',
-    summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at mi est. Sed mi sapien, laoreet in congue eget, elementum tincidunt libero. Vestibulum gravida posuere lorem, sed interdum ex maximus eu. Morbi ultrices iaculis dui non facilisis. Suspendisse consectetur felis nibh, vitae feugiat odio malesuada sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse fermentum ex sollicitudin risus tincidunt porta. Nullam pharetra condimentum ante non hendrerit. Vivamus sed velit diam. Proin id velit vitae tellus sagittis ultrices. Vivamus sed nulla vel risus tristique suscipit nec at ipsum. Proin cursus lacinia augue, vitae dignissim mauris pellentesque eget. Quisque leo neque, placerat at tincidunt vitae, sagittis sed libero. Integer volutpat, odio sed porttitor venenatis, leo quam ornare justo, ut tempus leo quam quis ex. Donec facilisis est purus, vel volutpat metus ultrices eget.Nullam nec ipsum pulvinar, rutrum arcu sagittis, sollicitudin felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consectetur viverra dui, id porttitor tellus imperdiet sed. Sed convallis sodales ligula, quis malesuada libero gravida ut. Mauris sodales mollis odio vitae porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed faucibus mauris. Praesent dolor eros, imperdiet vitae congue vel, ornare ac nisl. Nam vel consectetur purus, non fringilla velit. Maecenas malesuada, justo eget tempus tempor, nunc orci egestas purus, at varius mauris tellus et odio. Nam nec enim ac mi rhoncus interdum. Duis sit amet lectus eleifend, consectetur metus sed, semper purus. Ut faucibus est malesuada fermentum tincidunt. Donec non nibh laoreet, varius diam sed, fermentum massa. Aenean elit augue, ornare sit amet tempus sed, blandit vel nunc.',
-    kalp: "0",
-    raf: "1",
-    genre:'Şiir' ,
-    isbn: '9789750807268',
-}, {
-    id: 3,
-    name: 'Momo',
-    publisher: 'Kabalcı',
-    author: 'Micheal Ende',
-    img: 'img/momo.png',
-    summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at mi est. Sed mi sapien, laoreet in congue eget, elementum tincidunt libero. Vestibulum gravida posuere lorem, sed interdum ex maximus eu. Morbi ultrices iaculis dui non facilisis. Suspendisse consectetur felis nibh, vitae feugiat odio malesuada sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse fermentum ex sollicitudin risus tincidunt porta. Nullam pharetra condimentum ante non hendrerit. Vivamus sed velit diam. Proin id velit vitae tellus sagittis ultrices. Vivamus sed nulla vel risus tristique suscipit nec at ipsum. Proin cursus lacinia augue, vitae dignissim mauris pellentesque eget. Quisque leo neque, placerat at tincidunt vitae, sagittis sed libero. Integer volutpat, odio sed porttitor venenatis, leo quam ornare justo, ut tempus leo quam quis ex. Donec facilisis est purus, vel volutpat metus ultrices eget.Nullam nec ipsum pulvinar, rutrum arcu sagittis, sollicitudin felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consectetur viverra dui, id porttitor tellus imperdiet sed. Sed convallis sodales ligula, quis malesuada libero gravida ut. Mauris sodales mollis odio vitae porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed faucibus mauris. Praesent dolor eros, imperdiet vitae congue vel, ornare ac nisl. Nam vel consectetur purus, non fringilla velit. Maecenas malesuada, justo eget tempus tempor, nunc orci egestas purus, at varius mauris tellus et odio. Nam nec enim ac mi rhoncus interdum. Duis sit amet lectus eleifend, consectetur metus sed, semper purus. Ut faucibus est malesuada fermentum tincidunt. Donec non nibh laoreet, varius diam sed, fermentum massa. Aenean elit augue, ornare sit amet tempus sed, blandit vel nunc.',
-    kalp: "1",
-    raf: "2",
-    genre:'Bilimsel Roman' ,
-    isbn: '9789750807978',
-}, {
-    id: 4,
-    name: 'Hayal Kahramanları',
-    publisher: 'Türkiye İş Bankası Kültür Yayınları',
-    author: 'Sunay Akın',
-    img: 'img/hayalkahramanlari.png',
-    summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at mi est. Sed mi sapien, laoreet in congue eget, elementum tincidunt libero. Vestibulum gravida posuere lorem, sed interdum ex maximus eu. Morbi ultrices iaculis dui non facilisis. Suspendisse consectetur felis nibh, vitae feugiat odio malesuada sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse fermentum ex sollicitudin risus tincidunt porta. Nullam pharetra condimentum ante non hendrerit. Vivamus sed velit diam. Proin id velit vitae tellus sagittis ultrices. Vivamus sed nulla vel risus tristique suscipit nec at ipsum. Proin cursus lacinia augue, vitae dignissim mauris pellentesque eget. Quisque leo neque, placerat at tincidunt vitae, sagittis sed libero. Integer volutpat, odio sed porttitor venenatis, leo quam ornare justo, ut tempus leo quam quis ex. Donec facilisis est purus, vel volutpat metus ultrices eget.Nullam nec ipsum pulvinar, rutrum arcu sagittis, sollicitudin felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consectetur viverra dui, id porttitor tellus imperdiet sed. Sed convallis sodales ligula, quis malesuada libero gravida ut. Mauris sodales mollis odio vitae porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed faucibus mauris. Praesent dolor eros, imperdiet vitae congue vel, ornare ac nisl. Nam vel consectetur purus, non fringilla velit. Maecenas malesuada, justo eget tempus tempor, nunc orci egestas purus, at varius mauris tellus et odio. Nam nec enim ac mi rhoncus interdum. Duis sit amet lectus eleifend, consectetur metus sed, semper purus. Ut faucibus est malesuada fermentum tincidunt. Donec non nibh laoreet, varius diam sed, fermentum massa. Aenean elit augue, ornare sit amet tempus sed, blandit vel nunc.',
-    kalp: "1",
-    raf: "3",
-    genre:'Fantastik Roman' ,
-    isbn: '9789750807364',
-}];
-
-return {
-    all: function() {
-      return books;
-  },
-  get: function(bookId) {
-      for (var i = 0; i < books.length; i++) {
-        if (books[i].id === parseInt(bookId)) {
-          return books[i];
-      }
-  }
-  return null;
-},
-getfavor: function(){
-    var myFavorites =new Array();
-    for (var i = 0; i < books.length; i++){
-        if(books[i].kalp === "1" ){
-            myFavorites.push(books[i]);
+.service('Categories', function(Books,$q){
+    return {
+        get: function(url){
+            var booksinfo = [];
+            Books.getinf(String(url)).then(function(data){
+                for (var i = 0; i < data.length; i++) {
+                    Books.get(data[i]).then(function(response){
+                        booksinfo.push(response);
+                    });
+                }
+            })
+            return booksinfo;
         }
-    }
-    return myFavorites;
+    };
+})
+
+.factory('Books', function($http, $q, $ionicPopup, $state) {
+
+    return {
+        all: function(path) {
+            var defer = $q.defer();
+            $http.get('http://localhost/webservice/server/?a=get&func='+path).success(function(response){
+                defer.resolve(response);
+            });
+            return defer.promise;
+        },
+        get: function(customerBookId) {
+            var defer = $q.defer();
+            $http.get('http://localhost/webservice/server/?a=detail&id='+customerBookId).success(function(response){
+                defer.resolve(response);
+                console.log(response);
+            }).error(function(response){
+                console.log("Get Service Errors");
+                console.log(response);
+            });
+            return defer.promise;
+        },
+        getinf: function(userscase){
+            var defer= $q.defer();
+            var id=[];
+            $http.get('http://localhost/webservice/server/?a=getinfo&info='+userscase).success(function(response){
+                for (var i = 0; i < response.length; i++) {
+                    id.push(response[i].id);
+                }
+                defer.resolve(id)
+            });
+            return defer.promise;
+        },
+        getprofil: function(){
+            var defer = $q.defer();
+            $http.get('http://localhost/webservice/server/?a=get&func=kitaplarim').success(function(data){
+                var profil=[],read=[], reading=[], willread=[],c1=0,c2=0,c3=0;
+                for (var i=0; i<data.length; i++) {
+                    if (data[i].statu==="1") {
+                        if (c1<3) {
+                            read.push(data[i]);
+                            c1++;
+                        }else{continue;}
+                    }else if (data[i].statu==="2") {
+                        if (c2<3) {
+                            reading.push(data[i]);
+                            c2++;
+                        }else{continue;}
+                    }else if (data[i].statu==="3") {
+                        if (c3<3) {
+                            willread.push(data[i]);
+                            c3++;
+                        }else{continue;}
+                    }
+                }
+                profil.push(read,reading,willread);
+                defer.resolve(profil);
+            });
+            return defer.promise;
+        },
+        update: function(data){
+            $http({
+              method: 'POST',
+              url: 'http://localhost/webservice/server/?a=update2',
+              data: data,
+              headers:{'Content-Type': 'application/x-www-form-urlencoded'}
+          }).success(function(data){
+          }).error(function(data){
+            console.log(data);
+            alert("Bilgileriniz Güncellenemedi!!!");
+        });
+      },
+      save: function(data,path){
+        $http({
+          method: 'POST',
+          url: 'http://localhost/webservice/server/?a=newpost&path='+path,
+          data: data,
+          headers:{'Content-Type': 'application/x-www-form-urlencoded'}
+      }).success(function(data){
+        console.log(data);
+        if (path=="newbook") {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Kitabını Başarıyla Eklendi :)',
+            });
+            $state.go('tab.anasayfa');
+        }
+        var alertPopup = $ionicPopup.alert({
+            title: 'Kitabın Başarıyla Güncellendi :)',
+        });
+        $state.go('tab.anasayfa');
+    }).error(function(data){
+        var alertPopup = $ionicPopup.alert({
+            title: 'Malesef kitabınızı ekleyemedik :(',
+        });
+    });
 },
 getshelf: function(shelfId){
-    var myShelfs =new Array();
-    for (var i = 0; i < books.length; i++){
-        if(books[i].raf == parseInt(shelfId) ){
-            myShelfs.push(books[i]);
-        }
-    }
-    return myShelfs;
+    var defer = $q.defer();
+    $http.get('http://localhost/webservice/server/?a=shelf&ab=getshelf&id='+shelfId).success(function(response){
+        defer.resolve(response);
+        console.log(response);
+    });
+    return defer.promise;
+},
+saveshelf: function(data){
+    console.log(data);
+    $http({
+      method: 'POST',
+      url: 'http://localhost/webservice/server/?a=newshelf',
+      data: data,
+      headers:{'Content-Type': 'application/x-www-form-urlencoded'}
+  }).success(function(data){
+    var alertPopup = $ionicPopup.alert({
+        title: 'Raf Başarıyla Eklendi :)',
+    });
+    $state.go('tab.raflarim');
+}).error(function(data){
+    var alertPopup = $ionicPopup.alert({
+        title: 'Malesef raf eklenemedi.',
+    });
+});
+},
+addtoshelf: function(data,id){
+    console.log(data);
+    $http({
+      method: 'POST',
+      url: 'http://localhost/webservice/server/?a=shelf&ab=addtoshelf&id='+id,
+      data: data,
+      headers:{'Content-Type': 'application/x-www-form-urlencoded'}
+  }).success(function(data){
+    console.log(data);
+    var alertPopup = $ionicPopup.alert({
+        title: 'Kitaplar Rafınıza Başarıyla Eklendi :)',
+    });
+    $state.go('tab.raflarim');
+    window.location.reload(true);
+}).error(function(data){
+    console.log(data);
+    var alertPopup = $ionicPopup.alert({
+        title: 'Malesef kitaplar rafa eklenemedi.',
+    });
+});
+},
+remove: function(id,path){
+    $http.get('http://localhost/webservice/server/?a=remove&id='+id+'&path='+path).success(function(response){
+        console.log(response);
+    });
 }
 }
 });

@@ -1,7 +1,7 @@
-<ion-view class="profil-view">
+<ion-view hide-back-button="false" class="profil-view">
   <ion-nav-title>
     <div class="row">
-      <a href="#/anasayfa"><img class="navbar-img" src="img/simplecloudlibrary.png" alt="Logo"/></a>
+      <a href="#/anasayfa"><img class="navbar-img" ng-src="img/simplecloudlibrary.png" alt="Logo"/></a>
       <div class="navbar-title">Profil</div>
     </div>
   </ion-nav-title>
@@ -9,10 +9,11 @@
     <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
   </ion-nav-buttons>
   <ion-content>
+    <ion-refresher on-refresh="doRefresh()" pulling-text="Yenileniyor..."> </ion-refresher> 
     <div class="profilHead">
       <div class="row">
         <div class="col">
-          <img src="img/ben.png" alt="Profil Picture" id="profilPicture">
+          <img ng-src="img/ben.png" alt="Profil Picture" id="profilPicture">
         </div>
         <div class="col" id="profilName">
           Serhat Tan
@@ -32,28 +33,24 @@
         <div class="panelBody">
           <div class="col">
             <div class="reading statements">
-              <div class="statementHeader">Okuyorum</div>
-              <ion-scroll direction="x">
-                <div class="row">
-                  <img src="img/hayalkahramanlari.png" alt="">
-                  <img src="img/momo.png" alt="">
-                  <img src="img/kafamdabirtuhaflik.png" alt="">
-                  <img src="img/mahalledenarkadaslar.png" alt="">
-                  <img src="img/kimsecik.png" alt="">
+            <div class="statementHeader"> Okuyorum </div>
+              <ion-scroll direction="x" zooming="false" delegate-handle="horizontal" horizontal-scroll-fix="mainScroll">
+                <div class="row" id="row">
+                  <ion-item ng-repeat="readingbook in readingbooks" href="#/tab/kitaplarim/?a=detail&id={{readingbook.id}}">
+                    <img id="profilbookimg" ng-src="{{readingbook.img}}">
+                  </ion-item>
                 </div>
               </ion-scroll>
             </div>
           </div>
           <div class="col">
             <div class="chart statements">
-              <div class="statementHeader">Alışveriş Listem</div>
+              <div class="statementHeader">Okuyacağım</div>
               <ion-scroll direction="x">
-                <div class="row">
-                  <img src="img/kimsecik.png" alt="">
-                  <img src="img/kafamdabirtuhaflik.png" alt="">
-                  <img src="img/hayalkahramanlari.png" alt="">
-                  <img src="img/momo.png" alt="">
-                  <img src="img/mahalledenarkadaslar.png" alt="">
+                <div class="row" id="row">
+                  <ion-item ng-repeat="willreadbook in willreadbooks" href="#/tab/kitaplarim/?a=detail&id={{willreadbook.id}}">
+                    <img id="profilbookimg" ng-src="{{willreadbook.img}}">
+                  </ion-item>
                 </div>
               </ion-scroll>
             </div>
@@ -62,41 +59,39 @@
             <div class="read statements">
               <div class="statementHeader">Okudum</div>
               <ion-scroll direction="x">
-                <div class="row">
-                  <img src="img/kafamdabirtuhaflik.png" alt="">
-                  <img src="img/kimsecik.png" alt="">
-                  <img src="img/mahalledenarkadaslar.png" alt="">
-                  <img src="img/hayalkahramanlari.png" alt="">
-                  <img src="img/momo.png" alt="">
-                </div>
-              </ion-scroll>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="panel" ng-show="panel.isSelected(2)">
-        <div class="updateHeader">Güncelle</div>
-        <div class="list">
-          <label class="item item-input item-floating-label">
-            <span class="input-label"><i class="icon ion-person placeholder-icon"></i>
-              Kullanıcı Adı
-            </span>
-            <input type="text" placeholder="Kullanıcı Adı">
-          </label>
-          <label class="item item-input item-floating-label">
-            <span class="input-label"><i class="icon ion-person placeholder-icon"></i>Soyad</span>
-            <input type="text" placeholder="Soyad">
-          </label>
-          <label class="item item-input item-floating-label">
+                <div class="row" id="row">
+                  <ion-item ng-repeat="readbook in readbooks" href="#/tab/kitaplarim/?a=detail&id={{readbook.id}}">
+                   <img id="profilbookimg" ng-src="{{readbook.img}}">
+                 </ion-item>
+               </div>
+             </ion-scroll>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div class="panel" ng-show="panel.isSelected(2)">
+      <div class="updateHeader">Güncelle</div>
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label"><i class="icon ion-person placeholder-icon"></i>
+            Kullanıcı Adı
+          </span>
+          <input type="text" placeholder="Kullanıcı Adı">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label"><i class="icon ion-person placeholder-icon"></i>Soyad</span>
+          <input type="text" placeholder="Soyad">
+        </label>
+        <label class="item item-input item-floating-label">
           <span class="input-label"><i class="icon ion-email placeholder-icon"></i>E-mail Adresi</span>
-            <input type="text" placeholder="E-mail Adresi">
-          </label>
-          <button id="saveButton" class="button button-block">
-            Kaydet
-          </button>
-        </div>
+          <input type="text" placeholder="E-mail Adresi">
+        </label>
+        <button id="saveButton" class="button button-block">
+          Kaydet
+        </button>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+</div>
 </ion-content>
 </ion-view>
