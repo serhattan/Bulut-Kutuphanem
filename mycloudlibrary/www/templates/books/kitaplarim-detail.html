@@ -6,7 +6,6 @@
 -->
 <ion-view view-title="Bulut Kütüphanem" class="tab-kitaplarim-detail-view">
   <ion-content class="padding">
-    <ion-refresher on-refresh="doRefresh()" pulling-text="Yenileniyor..."> </ion-refresher> 
     <div class="bookDetailHead">
       <div class="bookline">
         <div class="image">
@@ -16,11 +15,11 @@
           <div class="bookInfoIndividual">{{bookdetail.name}}</div>
           <div class="bookInfoIndividual">{{bookdetail.publisher}}</div>
           <div class="bookInfoIndividual">{{bookdetail.author}}</div>
-          <select id="favorite" ng-model="myFavorite" ng-change="showSelectValue(myFavorite,myRate,myStatu,myShelf)">
+          <select id="favorite" ng-model="myFavorite" ng-change="showSelectValue(myFavorite,myRate,myStatu)">
             <option value="1">&#9825</option>
             <option value="2">&#10084</option>
           </select>
-          <select id="rating" ng-model="myRate" ng-change="showSelectValue(myFavorite,myRate,myStatu,myShelf)">
+          <select id="rating" ng-model="myRate" ng-change="showSelectValue(myFavorite,myRate,myStatu)">
             <option value="1">&#9733</option>
             <option value="2">&#9733&#9733</option>
             <option value="3">&#9733&#9733&#9733</option>
@@ -50,14 +49,10 @@
     </div>
     <div class="bookDetailBody">
       <div class="bookStatusClass">
-        <select id="bookStatus" ng-model="myStatu" ng-change="showSelectValue(myFavorite,myRate,myStatu,myShelf)">
+        <select id="bookStatus" ng-model="myStatu" ng-change="showSelectValue(myFavorite,myRate,myStatu)">
           <option value="1">Okudum</option>
           <option value="2">Okuyorum</option>
           <option value="3">Okuyacağım</option>
-        </select>
-        <select id="bookStatus" ng-model="myShelf" ng-change="showSelectValue(myFavorite,myRate,myStatu,myShelf)">
-          <option value="0"></option>
-          <option ng-repeat="shelf in shelfs" value="{{shelf.id}}">{{shelf.name}}</option>
         </select>
       </div>
       <span class="summaryHead"><h3>Kitabın Konusu</h3></span>

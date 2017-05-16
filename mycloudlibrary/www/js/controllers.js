@@ -53,37 +53,23 @@ angular.module('starter.controllers', [])
   var absUrl = $location.search();
   $scope.cb_id=absUrl.id;
 
-  Books.all('raflarim').then(function(data){
-    console.log(data);
-    $scope.shelfs = data;
-  })
-
   Books.get(absUrl.id).then(function(books){
     $scope.bookdetail = books;
     $scope.myFavorite=$scope.bookdetail.favorite;
     $scope.myRate=$scope.bookdetail.rate;
     $scope.myStatu=$scope.bookdetail.statu;
-    $scope.myShelf=$scope.bookdetail.shelf;
-
-    $scope.showSelectValue=function(myFavorite,myRate,myStatu,myShelf){
-      if((myFavorite!=$scope.bookdetail.favorite) || (myRate!=$scope.bookdetail.rate) || (myStatu!=$scope.bookdetail.statu) || (myShelf!=$scope.bookdetail.shelf) ){
+    $scope.showSelectValue=function(myFavorite,myRate,myStatu){
+      if((myFavorite!=$scope.bookdetail.favorite) || (myRate!=$scope.bookdetail.rate) || (myStatu!=$scope.bookdetail.statu) ){
         var postData = [];
         postData.push(encodeURIComponent("customer_books_id") + "=" + encodeURIComponent(absUrl.id));
         postData.push(encodeURIComponent("favorite") + "=" + encodeURIComponent(myFavorite));
         postData.push(encodeURIComponent("rate") + "=" + encodeURIComponent(myRate));
         postData.push(encodeURIComponent("statu") + "=" + encodeURIComponent(myStatu));
-        postData.push(encodeURIComponent("shelf") + "=" + encodeURIComponent(myShelf));
         var data = postData.join("&");
         Books.update(data);
       }
     }
   })
-  $scope.doRefresh = function() {
-    Books.all('raflarim').then(function(data){
-      $scope.shelfs = data;
-    })
-    $scope.$broadcast('scroll.refreshComplete');
-  }
 })
 
 .controller('KitaplarimMoreDetailCtrl', function($scope, $location, Books) {
@@ -159,6 +145,7 @@ angular.module('starter.controllers', [])
     $scope.shelfs = data;
   })
   $scope.add={};
+  console.log($scope.add)
   $scope.add.favorite ="1";
   $scope.add.statu ="1";
   $scope.add.rate ="1";
@@ -290,7 +277,6 @@ angular.module('starter.controllers', [])
   };
 
   $scope.onItemDelete = function(itemId) {
-
     Books.remove(itemId,'shelfremove');
   };
 
@@ -326,7 +312,18 @@ angular.module('starter.controllers', [])
   $scope.shelfid=$location.search().id;
   Books.getshelf($scope.shelfid).then(function(data){
     $scope.shelfBooks = data;
+    $scope.hideremoved=function(data){
+      $scope.shelfBooks.splice($scope.shelfBooks.indexOf(data),1);
+    };
   })
+
+
+  $scope.data = {
+    showDelete: false
+  };
+  $scope.onItemDelete = function(item) {
+    Books.remove(item.id,'bookremoveinshelf',item.customerShelf_id);
+  };
 })
 .controller('RaflarimEkleCtrl', function($scope, Books){
   $scope.add={};

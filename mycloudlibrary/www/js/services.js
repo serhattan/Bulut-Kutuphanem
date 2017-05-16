@@ -54,7 +54,6 @@ angular.module('starter.services', [])
             var defer = $q.defer();
             $http.get('http://localhost/webservice/server/?a=detail&id='+customerBookId).success(function(response){
                 defer.resolve(response);
-                console.log(response);
             }).error(function(response){
                 console.log("Get Service Errors");
                 console.log(response);
@@ -100,92 +99,90 @@ angular.module('starter.services', [])
             return defer.promise;
         },
         update: function(data){
+            console.log(data);
+            $http({
+              method: 'POST', 
+              url: 'http://localhost/webservice/server/?a=update2', 
+              data: data, 
+              headers:{'Content-Type': 'application/x-www-form-urlencoded'}})
+            .success(function(data){
+                console.log(data);
+            })
+            .error(function(data){
+                console.log(data);
+                alert("Bilgileriniz Güncellenemedi!!!"); });
+        },
+        save: function(data,path){
             $http({
               method: 'POST',
-              url: 'http://localhost/webservice/server/?a=update2',
+              url: 'http://localhost/webservice/server/?a=newpost&path='+path,
               data: data,
               headers:{'Content-Type': 'application/x-www-form-urlencoded'}
           }).success(function(data){
-          }).error(function(data){
             console.log(data);
-            alert("Bilgileriniz Güncellenemedi!!!");
-        });
-      },
-      save: function(data,path){
-        $http({
-          method: 'POST',
-          url: 'http://localhost/webservice/server/?a=newpost&path='+path,
-          data: data,
-          headers:{'Content-Type': 'application/x-www-form-urlencoded'}
-      }).success(function(data){
-        console.log(data);
-        if (path=="newbook") {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Kitabını Başarıyla Eklendi :)',
-            });
+            if (path=="newbook") {
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Kitabını Başarıyla Eklendi :)',
+                });
+            }else{
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Kitabın Başarıyla Güncellendi :)',
+                });                
+            }
             $state.go('tab.anasayfa');
+            window.location.reload(true);
+        }).error(function(data){var alertPopup = $ionicPopup.alert({title: 'Malesef kitabınızı ekleyemedik :(' }); });
+    },
+        getshelf: function(shelfId){
+            var defer = $q.defer();
+            $http.get('http://localhost/webservice/server/?a=shelf&ab=getshelf&id='+shelfId).success(function(response){
+                defer.resolve(response);
+            });
+            return defer.promise;
+        },
+        saveshelf: function(data){
+            console.log(data);
+            $http({
+              method: 'POST',
+              url: 'http://localhost/webservice/server/?a=newshelf',
+              data: data,
+              headers:{'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(data){
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Raf Başarıyla Eklendi :)',
+                });
+                $state.go('tab.raflarim');
+            }).error(function(data){
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Malesef raf eklenemedi.',
+                });
+            });
+        },
+        addtoshelf: function(data,id){
+                console.log(data);
+                $http({
+                  method: 'POST',
+                  url: 'http://localhost/webservice/server/?a=shelf&ab=addtoshelf&id='+id,
+                  data: data,
+                  headers:{'Content-Type': 'application/x-www-form-urlencoded'}
+              }).success(function(data){
+                console.log(data);
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Kitaplar Rafınıza Başarıyla Eklendi :)',
+                });
+                $state.go('tab.raflarim');
+                window.location.reload(true);
+            }).error(function(data){
+                console.log(data);
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Malesef kitaplar rafa eklenemedi.',
+                });
+            });
+        },
+        remove: function(id,path,bsid){
+            $http.get('http://localhost/webservice/server/?a=remove&id='+id+'&path='+path+'&bsid='+bsid).success(function(response){
+                console.log(response);
+            });
         }
-        var alertPopup = $ionicPopup.alert({
-            title: 'Kitabın Başarıyla Güncellendi :)',
-        });
-        $state.go('tab.anasayfa');
-    }).error(function(data){
-        var alertPopup = $ionicPopup.alert({
-            title: 'Malesef kitabınızı ekleyemedik :(',
-        });
-    });
-},
-getshelf: function(shelfId){
-    var defer = $q.defer();
-    $http.get('http://localhost/webservice/server/?a=shelf&ab=getshelf&id='+shelfId).success(function(response){
-        defer.resolve(response);
-        console.log(response);
-    });
-    return defer.promise;
-},
-saveshelf: function(data){
-    console.log(data);
-    $http({
-      method: 'POST',
-      url: 'http://localhost/webservice/server/?a=newshelf',
-      data: data,
-      headers:{'Content-Type': 'application/x-www-form-urlencoded'}
-  }).success(function(data){
-    var alertPopup = $ionicPopup.alert({
-        title: 'Raf Başarıyla Eklendi :)',
-    });
-    $state.go('tab.raflarim');
-}).error(function(data){
-    var alertPopup = $ionicPopup.alert({
-        title: 'Malesef raf eklenemedi.',
-    });
-});
-},
-addtoshelf: function(data,id){
-    console.log(data);
-    $http({
-      method: 'POST',
-      url: 'http://localhost/webservice/server/?a=shelf&ab=addtoshelf&id='+id,
-      data: data,
-      headers:{'Content-Type': 'application/x-www-form-urlencoded'}
-  }).success(function(data){
-    console.log(data);
-    var alertPopup = $ionicPopup.alert({
-        title: 'Kitaplar Rafınıza Başarıyla Eklendi :)',
-    });
-    $state.go('tab.raflarim');
-    window.location.reload(true);
-}).error(function(data){
-    console.log(data);
-    var alertPopup = $ionicPopup.alert({
-        title: 'Malesef kitaplar rafa eklenemedi.',
-    });
-});
-},
-remove: function(id,path){
-    $http.get('http://localhost/webservice/server/?a=remove&id='+id+'&path='+path).success(function(response){
-        console.log(response);
-    });
-}
-}
+    }
 });
