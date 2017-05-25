@@ -17,7 +17,7 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('KitaplarimCtrl', function($scope, $state, Books) {
+.controller('KitaplarimCtrl', function($scope, $state, $ionicPopover, $rootScope, Books) {
   Books.all().then(function(books){
     console.log(books);
     $scope.books = books;
@@ -46,6 +46,30 @@ angular.module('starter.controllers', [])
       $scope.$broadcast('scroll.refreshComplete');
     }) 
   }
+
+  $ionicPopover.fromTemplateUrl('templates/books/tab-kitaplarim.html', {
+    scope: $scope
+  }).then(function(popover) {
+    $scope.popover = popover;
+
+  });
+
+  $scope.setorderVal = function(val) {
+    console.log(val);
+    $rootScope.orderVal = val;
+  };
+  $scope.setSearchDialog = function(bool) {
+    $scope.showlist = bool;
+  }
+
+  $scope.setDiagActive = function(toggleShowlistDialog) {
+    //console.log(toggleShowlistDialog);
+    if (!toggleShowlistDialog) {
+      $scope.showlist = true;
+    } else {
+      $scope.showlist = false;
+    }
+  };
 })
 
 

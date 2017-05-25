@@ -41,11 +41,14 @@ angular.module('starter.services', [])
 })
 
 .factory('Books', function($http, $q, $ionicPopup, $state) {
-
+//başka bir dosyada bir sabit olarak bu url leri tanımlayacağım ve burada o diğer dosyadaki sabitleri çekeceğim.
+//başka bir dosyada ise bu sabitleri tanımladığım dosyanın example sini oluşturarak yanlış bilgileri yazacağım
+//git e ise bu yanlış bilgili olan kısımı yollayacağım
     return {
         all: function(path) {
             var defer = $q.defer();
             $http.get('http://localhost/webservice/server/?a=get&func='+path).success(function(response){
+                console.log(response);
                 defer.resolve(response);
             });
             return defer.promise;
