@@ -4,6 +4,10 @@
 }	
 */
 /* MainPage CSS */
+div.title.title-center.header-item{
+	width: inherit;
+	margin-top: auto;
+}
 .main-view{
 	background-image: url('../img/simplecloudlibrary.png');
 	background-repeat: no-repeat;
@@ -34,8 +38,8 @@
 }
 
 .bookIcon{
-	text-align: right; 
-	font-size: 150%;
+	margin-top: 5%;
+	font-size: 200%;
 }
 .bar .title a{
 	text-decoration: none;

@@ -1,11 +1,9 @@
 <ion-view view-title="Şu Anda Okuduğum Kitaplar" class="kategorilerim-case-view">
   <ion-nav-title>
-    <div class="row">
-      <div class="navbar-title">Şu Anda Okuduğum Kitaplar</div>
-      <i class="ion-ios-book bookIcon"> {{getinfos.length}} </i>  
-    </div>
+    <div class="navbar-title">Şu Anda Okuduğum Kitaplar</div>
   </ion-nav-title>
   <ion-nav-buttons side="right">
+    <i class="ion-ios-book bookIcon"> {{getinfos.length}} </i>  
   </ion-nav-buttons>
   <ion-content class="padding">
     <ion-refresher on-refresh="doRefresh()" pulling-text="Yenileniyor..."> </ion-refresher> 

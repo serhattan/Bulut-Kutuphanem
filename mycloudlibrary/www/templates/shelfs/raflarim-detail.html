@@ -1,14 +1,12 @@
 <ion-view hide-back-button="false" class="raflarim-detail-view">
 	<ion-nav-title>
-		<div class="row">
-			<div class="navbar-title">Raflarım Detail</div>
-			<i class="ion-ios-book bookIcon"> {{shelfBooks.length}}</i>&nbsp&nbsp&nbsp&nbsp  
-			<a href="#/tab/raflarim/checkbox?id={{shelfid}}" style="background-color: Transparent;border: none;"><i class="ion-ios-plus-outline bookIcon"></i> </a>
-			<button class="button button-icon icon ion-ios-minus-outline" ng-click="data.showDelete = !data.showDelete;"></button>
-		</div>
+		<div class="navbar-title">Raflarım Detail</div>
 	</ion-nav-title>
 	<ion-nav-buttons side="right">
+		<a class="button button-icon icon ion-ios-plus-outline bookIcon" href="#/tab/raflarim/checkbox?id={{shelfid}}" style="background-color: Transparent;border: none;"></a>
+		<a class="button button-icon icon ion-ios-minus-outline bookIcon" ng-click="data.showDelete = !data.showDelete;" style="background-color: Transparent;border: none;"></a>
 	</ion-nav-buttons>
+
 	<ion-content class="padding">
 		<div class="row" id="count-order">
 		</div>

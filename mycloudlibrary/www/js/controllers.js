@@ -1,4 +1,5 @@
 angular.module('starter.controllers', [])
+
 .controller('MainCtrl', function($scope, $http) {})
 .controller('AnasayfaCtrl', function($scope) {})
 
