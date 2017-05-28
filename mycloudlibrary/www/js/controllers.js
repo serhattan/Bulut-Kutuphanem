@@ -1,9 +1,9 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.services', 'ngOpenFB'])
 
 .controller('MainCtrl', function($scope, $http) {})
 .controller('AnasayfaCtrl', function($scope) {})
 
-.controller('LoginCtrl', function($scope, $ionicPopup, $state, LoginService) {
+.controller('LoginCtrl', function($scope, $ionicPopup, $state, ngFB, LoginService, Books) {
   $scope.data = {};
   $scope.login = function() {
     LoginService.loginUser($scope.data.email, $scope.data.password).success(function(data) {
@@ -16,23 +16,58 @@ angular.module('starter.controllers', [])
       });
     });
   }
+  $scope.fbLogin = function () {
+    ngFB.login({scope: 'public_profile, email, user_friends, publish_actions, user_actions.books'}).then(
+      function (response) {
+        if (response.status === 'connected') {
+          console.log('Facebook login succeeded');
+          ngFB.api({
+            path: '/me',
+            params: {fields: 'id,name,email'}
+          }).then(
+          function (user) {
+            var postData = [];
+            postData.push(encodeURIComponent("id") + "=" + encodeURIComponent(user.id));
+            postData.push(encodeURIComponent("img") + "=" + encodeURIComponent("http://graph.facebook.com/"+user.id+"/picture?width=270&height=270"));
+            postData.push(encodeURIComponent("name") + "=" + encodeURIComponent(user.name));
+            postData.push(encodeURIComponent("email") + "=" + encodeURIComponent(user.email));
+            var data = postData.join("&");
+            Books.newuser(data);
+            sessionStorage.setItem("id",user.id);
+            sessionStorage.setItem("name",user.name);
+          },
+          function (error) {
+            console.log(error);
+            alert('Facebook error: ' + error.error_description);
+          });
+          $state.go('anasayfa');
+        } else {
+          alert('Facebook login failed');
+        }
+      });
+  };
+
+
+
 })
 
-.controller('RegisterCtrl', function($scope, Books) {
+.controller('RegisterCtrl', function($scope, $state,Books) {
   $scope.add={};
 
   $scope.register = function(){
     var postData = [];
+    postData.push(encodeURIComponent("img") + "=" + encodeURIComponent("img/ben.png"));
     postData.push(encodeURIComponent("name") + "=" + encodeURIComponent($scope.add.name));
-    postData.push(encodeURIComponent("surname") + "=" + encodeURIComponent($scope.add.surname));
     postData.push(encodeURIComponent("email") + "=" + encodeURIComponent($scope.add.email));
     postData.push(encodeURIComponent("password") + "=" + encodeURIComponent($scope.add.password));
     var data = postData.join("&");
     Books.newuser(data);
+    $state.go('login');
+    window.location.reload(true);
   }
 })
 
-.controller('KitaplarimCtrl', function($scope, $state, $ionicPopover, $rootScope, Books) {
+.controller('KitaplarimCtrl', function($scope, $state, $ionicPopover, $rootScope,ngFB, Books) {
   Books.all().then(function(books){
     console.log(books);
     $scope.books = books;
@@ -47,10 +82,6 @@ angular.module('starter.controllers', [])
 
   $scope.edit = function(book, id) {
     $state.go('tab.kitaplarim-edit',{cid: book.id});
-  };
-  $scope.share = function(item) {
-    console.log(item);
-    alert('Share Item: ' + item.id);
   };
   $scope.onItemDelete = function(item) {
     Books.remove(item.id,'bookremove');
@@ -83,6 +114,22 @@ angular.module('starter.controllers', [])
     } else {
       $scope.showlist = false;
     }
+  };
+
+  $scope.share = function (book) {
+    ngFB.api({
+      method: 'POST',
+      path: '/me/feed',
+      params: {
+        message: "Bulut Kütüphanem: '" + book.author + "' tarafından yazılan  " + book.name
+      }
+    }).then(
+    function () {
+      alert('The session was shared on Facebook');
+    },
+    function () {
+      alert('An error occurred while sharing this session on Facebook');
+    });
   };
 })
 
@@ -175,7 +222,7 @@ angular.module('starter.controllers', [])
     var data = postData.join("&");
     Books.save(data,"updatebook");
   }
-  
+
 })
 
 .controller('ManualEkleCtrl', function($scope, $cordovaCamera, Books) {
@@ -297,7 +344,7 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('ProfilCtrl', function($scope, $state, Books) {
+.controller('ProfilCtrl', function($scope, $state, ngFB, Books) {
   $scope.doRefresh = function() {
     window.location.reload(true);
   } 
@@ -312,6 +359,16 @@ angular.module('starter.controllers', [])
     sessionStorage.removeItem("name");
     $state.go('main');
   }
+
+  Books.all("profilInfo").then(function(data){
+    $scope.name=data[0].name;
+    $scope.img=data[0].img;
+  })
+
+  Books.all().then(function(books){
+    $scope.books = books;
+  })
+
   //tab değeri 1 e eşitlenerek ilk seçeneğin default olarak seçilmesini sağlıyoruz
   this.tab = 1;
   //kullanıcının ng-click ile yolladığı değer this.tab a eşitleniyor

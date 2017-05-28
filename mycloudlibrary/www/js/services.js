@@ -59,6 +59,7 @@ angular.module('starter.services', [])
 return {
     all: function(path) {
         var defer = $q.defer();
+        console.log(sessionStorage.id);
         $http.get('http://localhost/webservice/server/?a=get&func='+path+'&userId='+sessionStorage.id).success(function(response){
             defer.resolve(response);
         }).error(function(response){
@@ -93,6 +94,7 @@ return {
     getprofil: function(){
         var defer = $q.defer();
         $http.get('http://localhost/webservice/server/?a=get&func=kitaplarim&userId='+sessionStorage.id).success(function(data){
+            console.log(data);
             var profil=[],read=[], reading=[], willread=[],c1=0,c2=0,c3=0;
             for (var i=0; i<data.length; i++) {
                 if (data[i].statu==="1") {
@@ -214,23 +216,19 @@ insertbooks: function(data){
 },
 newuser: function(data){
     $http({
-          method: 'POST',
-          url: 'http://localhost/webservice/server/?a=newUser',
-          data: data,
-          headers:{'Content-Type': 'application/x-www-form-urlencoded'}
-      }).success(function(data){
-        console.log(data);
-        var alertPopup = $ionicPopup.alert({
-            title: 'Bilgileriniz Başarıyla Eklendi :)',
-        });
-        $state.go('login');
-        window.location.reload(true);
-    }).error(function(data){
-        console.log(data);
-        var alertPopup = $ionicPopup.alert({
-            title: 'Malesef Bilgilerinizi Kayıt Edemedik :(' 
-        });
+      method: 'POST',
+      url: 'http://localhost/webservice/server/?a=newUser',
+      data: data,
+      headers:{'Content-Type': 'application/x-www-form-urlencoded'}
+  }).success(function(data){
+    console.log(data);
+
+}).error(function(data){
+    console.log(data);
+    var alertPopup = $ionicPopup.alert({
+        title: 'Malesef Bilgilerinizi Kayıt Edemedik :(' 
     });
+});
 },
 remove: function(id,path,bsid){
     $http.get('http://localhost/webservice/server/?a=remove&id='+id+'&path='+path+'&bsid='+bsid).success(function(response){

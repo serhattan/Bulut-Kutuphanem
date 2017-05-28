@@ -13,13 +13,13 @@
     <div class="profilHead">
       <div class="row">
         <div class="col">
-          <img ng-src="img/ben.png" alt="Profil Picture" id="profilPicture">
+          <img id="profilPicture" ng-src="{{img}}"/>
         </div>
         <div class="col" id="profilName">
-          {{userName}}
+          {{name}}
         </div>
         <div class="col" id="bookNumber">
-          5 Kitap
+          {{books.length}}
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
         <div class="panelBody">
           <div class="col">
             <div class="reading statements">
-            <div class="statementHeader"> Okuyorum </div>
+              <div class="statementHeader"> Okuyorum </div>
               <ion-scroll direction="x" zooming="false" delegate-handle="horizontal" horizontal-scroll-fix="mainScroll">
                 <div class="row" id="row">
                   <ion-item ng-repeat="readingbook in readingbooks" href="#/tab/kitaplarim/?a=detail&id={{readingbook.id}}">
