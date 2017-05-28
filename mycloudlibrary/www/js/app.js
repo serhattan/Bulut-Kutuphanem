@@ -5,7 +5,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -13,6 +13,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    }
+    if (window.cordova && window.cordova.logger) {
+      window.cordova.logger.__onDeviceReady();
     }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
@@ -38,7 +41,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     controller: 'LoginCtrl'
   })
 
-  $stateProvider
   .state('anasayfa', {
     url: '/anasayfa',
     templateUrl: 'templates/anasayfa.html',
@@ -192,8 +194,35 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/ekle',
     views: {
       'tab-ekle': {
-        templateUrl: 'templates/tab-ekle.html',
+        templateUrl: 'templates/add/tab-ekle.html',
         controller: 'EkleCtrl'
+      }
+    }
+  })
+  .state('tab.ekle-manual', {
+    url: '/ekle/manual',
+    views: {
+      'tab-ekle': {
+        templateUrl: 'templates/add/manual-ekle.html',
+        controller: 'ManualEkleCtrl'
+      }
+    }
+  })
+  .state('tab.ekle-search', {
+    url: '/ekle/search',
+    views: {
+      'tab-ekle': {
+        templateUrl: 'templates/add/search-ekle.html',
+        controller: 'SearchEkleCtrl'
+      }
+    }
+  })
+  .state('tab.ekle-isbn', {
+    url: '/ekle/isbn',
+    views: {
+      'tab-ekle': {
+        templateUrl: 'templates/add/isbn-ekle.html',
+        controller: 'IsbnEkleCtrl'
       }
     }
   })

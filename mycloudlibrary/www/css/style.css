@@ -415,8 +415,97 @@ div.title.title-center.header-item{
 	margin-top: 5%;
 	margin-bottom: 5%;
 	width: 100%;
+} 
+
+.search-ekle input {
+	outline: none;
+}
+.search-ekle input[type=text] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+.search-ekle input::-webkit-search-decoration,
+.search-ekle input::-webkit-search-cancel-button {
+	display: none; 
 }
 
+
+.search-ekle input[type=text] {
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 20%;
+
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+.search-ekle input[type=text]:focus {
+	width: 75%;
+	background-color: #fff;
+	border-color: #66CC75;
+
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+.search-ekle input:-moz-placeholder {
+	color: #999;
+}
+.search-ekle input::-webkit-input-placeholder {
+	color: #999;
+}
+
+.isbn-ekle input {
+	outline: none;
+}
+.isbn-ekle input[type=number] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+.isbn-ekle input::-webkit-search-decoration,
+.isbn-ekle input::-webkit-search-cancel-button {
+	display: none; 
+}
+
+
+.isbn-ekle input[type=number] {
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 20%;
+
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+.isbn-ekle input[type=number]:focus {
+	width: 70%;
+	background-color: #fff;
+	border-color: #66CC75;
+
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+.isbn-ekle input:-moz-placeholder {
+	color: #999;
+}
+.isbn-ekle input::-webkit-input-placeholder {
+	color: #999;
+}
 
 .raflarim-detail-view img{
 	float:left;

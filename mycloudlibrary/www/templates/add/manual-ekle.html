@@ -1,8 +1,7 @@
 <ion-view hide-back-button="false" class="ekle-view">
 	<ion-nav-title>
 		<div class="row">
-			<a href="#/anasayfa"><img class="navbar-img" src="img/simplecloudlibrary.png" alt="Logo"/></a>
-			<div class="navbar-title">Yeni Kitap</div>
+			<div class="navbar-title">El ile Ekle</div>
 			<button class="button button-light" ng-click="adding()" style="background-color: Transparent; border: none;"> Kaydet</button>
 		</div>
 	</ion-nav-title>
@@ -11,7 +10,13 @@
 		<div class="row">
 			<div class="image">
 				<div id="plusicon" ng-model="add.img">
-					<i class="ion-ios-plus-outline">*</i>
+					<img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" style="text-align: center">
+					<button class="button button-full button-assertive" ng-click="takePhoto()">
+						Fotoğraf Çek
+					</button>
+					<button class="button button-full button-assertive" ng-click="choosePhoto()">
+						Fotoğraf Seç
+					</button>
 				</div>
 			</div>
 			<div class="list">

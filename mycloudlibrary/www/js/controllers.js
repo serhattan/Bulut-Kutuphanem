@@ -52,7 +52,6 @@ angular.module('starter.controllers', [])
     scope: $scope
   }).then(function(popover) {
     $scope.popover = popover;
-
   });
 
   $scope.setorderVal = function(val) {
@@ -165,7 +164,7 @@ angular.module('starter.controllers', [])
   
 })
 
-.controller('EkleCtrl', function($scope, Books) {
+.controller('ManualEkleCtrl', function($scope, $cordovaCamera, Books) {
   Books.all('raflarim').then(function(data){
     $scope.shelfs = data;
   })
@@ -214,6 +213,75 @@ angular.module('starter.controllers', [])
     $scope.add.statu ="1";
     $scope.add.rate ="1";
   };
+
+
+  $scope.takePhoto = function () {
+    var options = {
+      quality: 75,
+      destinationType: Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.CAMERA,
+      allowEdit: true,
+      encodingType: Camera.EncodingType.JPEG,
+      targetWidth: 300,
+      targetHeight: 300,
+      popoverOptions: CameraPopoverOptions,
+      saveToPhotoAlbum: false
+    };
+
+    $cordovaCamera.getPicture(options).then(function (imageData) {
+      $scope.imgURI = "data:image/jpeg;base64," + imageData;
+    }, function (err) {
+                        // An error occured. Show a message to the user
+                      });
+  }
+
+  $scope.choosePhoto = function () {
+    var options = {
+      quality: 75,
+      destinationType: Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+      allowEdit: true,
+      encodingType: Camera.EncodingType.JPEG,
+      targetWidth: 300,
+      targetHeight: 300,
+      popoverOptions: CameraPopoverOptions,
+      saveToPhotoAlbum: false
+    };
+
+    $cordovaCamera.getPicture(options).then(function (imageData) {
+      $scope.imgURI = "data:image/jpeg;base64," + imageData;
+    }, function (err) {
+      console.log(err);
+    });
+  }
+
+
+})
+
+.controller('EkleCtrl', function($scope, Books){
+
+})
+.controller('SearchEkleCtrl', function($scope, Books){
+  Books.all('databaseBooks').then(function(books){
+    $scope.allbooks = books;
+  })
+  $scope.addDb = function(bookId){
+    var postData = [];
+    postData.push(encodeURIComponent("bookId") + "=" + encodeURIComponent(bookId));
+    var data = postData.join("&");
+    Books.insertbooks(data);
+  }
+})
+.controller('IsbnEkleCtrl', function($scope, Books){
+  Books.all('databaseBooks').then(function(books){
+    $scope.allbooks = books;
+  })
+  $scope.addDb = function(bookId){
+    var postData = [];
+    postData.push(encodeURIComponent("bookId") + "=" + encodeURIComponent(bookId));
+    var data = postData.join("&");
+    Books.insertbooks(data);
+  }
 })
 
 .controller('ProfilCtrl', function($scope, $state, Books) {

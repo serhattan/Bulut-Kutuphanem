@@ -1,0 +1,20 @@
+<ion-view hide-back-button="false" class="search-ekle">
+  <ion-nav-title>
+    <div class="row">
+      <div class="navbar-title">Veritabanından Kitap Ekleme</div>
+    </div>
+  </ion-nav-title>
+  <ion-content class="padding" style="margin-top: 15px;">
+
+    <input type="text" placeholder="Aramak istediğini kitabın adını giriniz" ng-model="searching">
+
+    <ion-item ng-repeat="allbook in allbooks |filter:searching |limitTo:15" style="margin-top: 15px;">
+      <button ng-class="{'button ion-checkmark-circled bookIcon': added, 'button ion-ios-plus-outline bookIcon': !added}" ng-click="added=true; addDb(allbook.id)" style="float:right; background-color: Transparent;border: none;"></button>
+      <img ng-src="{{allbook.img}}" style=" width: 15%; float: left; margin-right: 2%">
+      <div class="bookInfoIndividual">{{allbook.name}}</div>
+      <div class="bookInfoIndividual">{{allbook.author}}</div>
+      <div class="bookInfoIndividual">{{allbook.publisher}}</div>
+    </ion-item>
+
+  </ion-content>
+</ion-view>

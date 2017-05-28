@@ -15,14 +15,14 @@
 
       <div class="advanceSearch" ng-show="!showlist" ng-hide="showlist" style="width: 45%; margin-left: auto;">
 
-          <input type="text" placeholder="Ara" ng-model="search">
+        <input type="text" placeholder="Ara" ng-model="search">
 
       </div>
-
       <button class="button button-icon ion-funnel sortIcon" ng-click="popover.show($event)"> Sırala</button>
     </div>
     <hr>
     <ion-list show-delete="data.showDelete">
+    
       <ion-item ng-repeat="book in books |filter:search|orderBy:orderVal" class="list card item-remove-animate" type="item-text-wrap" href="#/tab/kitaplarim/?a=detail&id={{book.id}}">
         <div class="item item-body">
           <img ng-src="{{book.img}}">
@@ -38,26 +38,24 @@
   </ion-content>
   <script id="templates/books/tab-kitaplarim.html" type="text/ng-template">
     <ion-popover-view>
-      <ion-content>
-        <div class="list">
-          <a class="item" ng-click="setorderVal('name')">
-            İsim
-          </a>
-          <a class="item" ng-click="setorderVal('author')">
-            Yazar
-          </a>
-          <a class="item" ng-click="setorderVal('publisher')">
-            Yayın Evi
-          </a>
-          <a class="item" ng-click="setorderVal('-rate')">
-            Derece
-          </a>
-          <a class="item" ng-click="setorderVal('-id')">
-            Eklenme Sırası
-          </a>
+      <div class="list" ng-click="popover.hide()">
+        <a class="item" ng-click="setorderVal('name')">
+          İsim
+        </a>
+        <a class="item" ng-click="setorderVal('author')">
+          Yazar
+        </a>
+        <a class="item" ng-click="setorderVal('publisher')">
+          Yayın Evi
+        </a>
+        <a class="item" ng-click="setorderVal('-rate')">
+          Derece
+        </a>
+        <a class="item" ng-click="setorderVal('-id')">
+          Eklenme Sırası
+        </a>
 
-        </div>
-      </ion-content>
+      </div>
     </ion-popover-view>
   </script>
 </ion-view>

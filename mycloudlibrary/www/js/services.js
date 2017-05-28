@@ -48,8 +48,9 @@ angular.module('starter.services', [])
         all: function(path) {
             var defer = $q.defer();
             $http.get('http://localhost/webservice/server/?a=get&func='+path).success(function(response){
-                console.log(response);
                 defer.resolve(response);
+            }).error(function(response){
+                console.log(response);
             });
             return defer.promise;
         },
@@ -58,7 +59,6 @@ angular.module('starter.services', [])
             $http.get('http://localhost/webservice/server/?a=detail&id='+customerBookId).success(function(response){
                 defer.resolve(response);
             }).error(function(response){
-                console.log("Get Service Errors");
                 console.log(response);
             });
             return defer.promise;
@@ -134,8 +134,13 @@ angular.module('starter.services', [])
             }
             $state.go('tab.anasayfa');
             window.location.reload(true);
-        }).error(function(data){var alertPopup = $ionicPopup.alert({title: 'Malesef kitabınızı ekleyemedik :(' }); });
-    },
+        }).error(function(data){
+            console.log(data);
+            var alertPopup = $ionicPopup.alert({
+                    title: 'Malesef kitabınızı ekleyemedik :(' 
+                });
+            });
+        },
         getshelf: function(shelfId){
             var defer = $q.defer();
             $http.get('http://localhost/webservice/server/?a=shelf&ab=getshelf&id='+shelfId).success(function(response){
@@ -156,6 +161,7 @@ angular.module('starter.services', [])
                 });
                 $state.go('tab.raflarim');
             }).error(function(data){
+                console.log(data)
                 var alertPopup = $ionicPopup.alert({
                     title: 'Malesef raf eklenemedi.',
                 });
@@ -181,6 +187,14 @@ angular.module('starter.services', [])
                     title: 'Malesef kitaplar rafa eklenemedi.',
                 });
             });
+        },
+        insertbooks: function(data){
+            $http({
+                  method: 'POST',
+                  url: 'http://localhost/webservice/server/?a=insert',
+                  data: data,
+                  headers:{'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function(data){})
         },
         remove: function(id,path,bsid){
             $http.get('http://localhost/webservice/server/?a=remove&id='+id+'&path='+path+'&bsid='+bsid).success(function(response){
