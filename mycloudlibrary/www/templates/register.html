@@ -1,0 +1,25 @@
+<ion-view hide-nav-bar="true" name="register-view" class="register-view">
+  <ion-content class="padding">
+    <div class="list" style="width: 65%;  margin: 2% auto 0% auto;">
+      <img id="RegisterPageLogo" src="img/cloudlibrary.png" alt="">
+      <label class="item item-input item-floating-label">
+        <span class="icon ion-person placeholder-icon input-label"> Adınız</span>
+        <input type="text" placeholder="Adınız" ng-model="add.name">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="icon ion-person placeholder-icon input-label"> Soyadınız</span>
+        <input type="text" placeholder="Soyadınız" ng-model="add.surname">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="icon ion-email placeholder-icon input-label"> Email</span>
+        <input type="text" placeholder="Email" ng-model="add.email">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="icon ion-locked placeholder-icon input-label"> Parola</span>
+        <input type="text" placeholder="Parola" ng-model="add.password">
+      </label>
+      <button id="registerButton" class="button button-block button-balanced ion-person-add" ion-button round ng-click="register()"> Hesap Oluştur </button>
+      <a href="#/login" id="loginButton" class="button button-block button-assertive" round"> Zaten Bir Hesabım Var </a>
+    </div>
+  </ion-content>
+</ion-view>

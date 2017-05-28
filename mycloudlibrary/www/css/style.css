@@ -50,12 +50,17 @@ div.title.title-center.header-item{
 	width: 100%;
 }
 .login-view #userInfo{
-	margin: 15% auto 0% auto ;
+	margin: 5% auto 0% auto ;
 	width: 65%;
 }
 .login-view #loginButton{
 	margin: 5% auto 0% auto;
-	width: 50%;
+	width: 65%;
+}
+/*RegisterPage CSS*/
+.register-view #RegisterPageLogo{
+	border-radius: 80%;
+	width: 100%;
 }
 
 /*NavBar CSS*/

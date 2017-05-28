@@ -18,6 +18,19 @@ angular.module('starter.controllers', [])
   }
 })
 
+.controller('RegisterCtrl', function($scope, Books) {
+  $scope.add={};
+
+  $scope.register = function(){
+    var postData = [];
+    postData.push(encodeURIComponent("name") + "=" + encodeURIComponent($scope.add.name));
+    postData.push(encodeURIComponent("surname") + "=" + encodeURIComponent($scope.add.surname));
+    postData.push(encodeURIComponent("email") + "=" + encodeURIComponent($scope.add.email));
+    postData.push(encodeURIComponent("password") + "=" + encodeURIComponent($scope.add.password));
+    var data = postData.join("&");
+    Books.newuser(data);
+  }
+})
 
 .controller('KitaplarimCtrl', function($scope, $state, $ionicPopover, $rootScope, Books) {
   Books.all().then(function(books){
