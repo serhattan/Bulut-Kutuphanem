@@ -3,11 +3,12 @@ angular.module('starter.controllers', [])
 .controller('MainCtrl', function($scope, $http) {})
 .controller('AnasayfaCtrl', function($scope) {})
 
-.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
+.controller('LoginCtrl', function($scope, $ionicPopup, $state, LoginService) {
   $scope.data = {};
   $scope.login = function() {
-    LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
+    LoginService.loginUser($scope.data.email, $scope.data.password).success(function(data) {
       $state.go('anasayfa');
+      window.location.reload(true);
     }).error(function(data) {
       var alertPopup = $ionicPopup.alert({
         title: 'Giriş Başarısız!',
@@ -231,8 +232,7 @@ angular.module('starter.controllers', [])
     $cordovaCamera.getPicture(options).then(function (imageData) {
       $scope.imgURI = "data:image/jpeg;base64," + imageData;
     }, function (err) {
-                        // An error occured. Show a message to the user
-                      });
+    });
   }
 
   $scope.choosePhoto = function () {
@@ -288,11 +288,17 @@ angular.module('starter.controllers', [])
   $scope.doRefresh = function() {
     window.location.reload(true);
   } 
+  $scope.userName=sessionStorage.name;
   Books.getprofil().then(function(data){
     $scope.readbooks = data[0];
     $scope.readingbooks = data[1];
     $scope.willreadbooks = data[2];
   })
+  $scope.logout = function(){
+    sessionStorage.removeItem("id");
+    sessionStorage.removeItem("name");
+    $state.go('main');
+  }
   //tab değeri 1 e eşitlenerek ilk seçeneğin default olarak seçilmesini sağlıyoruz
   this.tab = 1;
   //kullanıcının ng-click ile yolladığı değer this.tab a eşitleniyor
@@ -445,7 +451,6 @@ angular.module('starter.controllers', [])
     postData=[];
   }
 })
-
 
 .controller('FavorilerimCtrl', function($scope, Books) {
   Books.all('fav').then(function(books){

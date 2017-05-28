@@ -1,16 +1,22 @@
 angular.module('starter.services', [])
 
-.service('LoginService', function($q) {
+.service('LoginService', function(Books,$q) {
     return {
-        loginUser: function(name, pw) {
+        loginUser: function(email, pw) {
             var deferred = $q.defer();
             var promise = deferred.promise;
 
-            if (name == 'user' && pw == '1234') {
-                deferred.resolve('Hoşgeldin ' + name + '!');
-            } else {
-                deferred.reject('Bilgiler yanlış!');
-            }
+            Books.getinf('login',email).then(function(data){
+                if (email == data.email && pw == data.password) {
+                    deferred.resolve('Hoşgeldin ' + data.name + '!');
+                    console.log(data);
+                    sessionStorage.setItem("id",data.id);
+                    sessionStorage.setItem("name",data.name);
+                } else {
+                    deferred.reject('Bilgiler yanlış!');
+                }
+            })
+
             promise.success = function(fn) {
                 promise.then(fn);
                 return promise;
@@ -47,7 +53,7 @@ angular.module('starter.services', [])
     return {
         all: function(path) {
             var defer = $q.defer();
-            $http.get('http://localhost/webservice/server/?a=get&func='+path).success(function(response){
+            $http.get('http://localhost/webservice/server/?a=get&func='+path+'&userId='+sessionStorage.id).success(function(response){
                 defer.resolve(response);
             }).error(function(response){
                 console.log(response);
@@ -56,17 +62,21 @@ angular.module('starter.services', [])
         },
         get: function(customerBookId) {
             var defer = $q.defer();
-            $http.get('http://localhost/webservice/server/?a=detail&id='+customerBookId).success(function(response){
+            $http.get('http://localhost/webservice/server/?a=detail&id='+customerBookId+'&userId='+sessionStorage.id).success(function(response){
                 defer.resolve(response);
             }).error(function(response){
                 console.log(response);
             });
             return defer.promise;
         },
-        getinf: function(userscase){
+        getinf: function(userscase,email){
             var defer= $q.defer();
             var id=[];
-            $http.get('http://localhost/webservice/server/?a=getinfo&info='+userscase).success(function(response){
+            $http.get('http://localhost/webservice/server/?a=getinfo&info='+userscase+'&email='+email+'&userId='+sessionStorage.id).success(function(response){
+                if (email!=undefined) {
+                    defer.resolve(response);
+                    return defer.promise;
+                }
                 for (var i = 0; i < response.length; i++) {
                     id.push(response[i].id);
                 }
@@ -76,7 +86,7 @@ angular.module('starter.services', [])
         },
         getprofil: function(){
             var defer = $q.defer();
-            $http.get('http://localhost/webservice/server/?a=get&func=kitaplarim').success(function(data){
+            $http.get('http://localhost/webservice/server/?a=get&func=kitaplarim&userId='+sessionStorage.id).success(function(data){
                 var profil=[],read=[], reading=[], willread=[],c1=0,c2=0,c3=0;
                 for (var i=0; i<data.length; i++) {
                     if (data[i].statu==="1") {
@@ -118,7 +128,7 @@ angular.module('starter.services', [])
         save: function(data,path){
             $http({
               method: 'POST',
-              url: 'http://localhost/webservice/server/?a=newpost&path='+path,
+              url: 'http://localhost/webservice/server/?a=newpost&path='+path+'&userId='+sessionStorage.id,
               data: data,
               headers:{'Content-Type': 'application/x-www-form-urlencoded'}
           }).success(function(data){
@@ -152,7 +162,7 @@ angular.module('starter.services', [])
             console.log(data);
             $http({
               method: 'POST',
-              url: 'http://localhost/webservice/server/?a=newshelf',
+              url: 'http://localhost/webservice/server/?a=newshelf&userId='+sessionStorage.id,
               data: data,
               headers:{'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(data){
@@ -191,7 +201,7 @@ angular.module('starter.services', [])
         insertbooks: function(data){
             $http({
                   method: 'POST',
-                  url: 'http://localhost/webservice/server/?a=insert',
+                  url: 'http://localhost/webservice/server/?a=insert&userId='+sessionStorage.id,
                   data: data,
                   headers:{'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function(data){})
