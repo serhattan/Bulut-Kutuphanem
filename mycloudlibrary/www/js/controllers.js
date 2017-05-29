@@ -117,18 +117,27 @@ angular.module('starter.controllers', ['starter.services', 'ngOpenFB'])
   };
 
   $scope.share = function (book) {
+    if (book.statu==1) {
+      $statu="okudum.";
+    }else if (book.statu==2) {
+      $statu="okuyorum.";
+    }else if (book.statu==3) {
+      $statu="okuyacağım.";
+    }else{
+      $statu="tavsiye ederim."
+    }
     ngFB.api({
       method: 'POST',
       path: '/me/feed',
       params: {
-        message: "Bulut Kütüphanem: '" + book.author + "' tarafından yazılan  " + book.name
+        message: "Bulut Kütüphanem: '" + book.author + "' tarafından yazılan  '" + book.name + "' adlı kitabı " + $statu
       }
     }).then(
     function () {
       alert('The session was shared on Facebook');
     },
     function () {
-      alert('An error occurred while sharing this session on Facebook');
+      alert('Paylaşım Yapabilmek için Lütfen Facebook ile Giriş Yapınız!!!');
     });
   };
 })
